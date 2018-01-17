@@ -1,0 +1,18 @@
+.outter-wrapper{
+	width:calc(100% - 40px);
+	height:calc(100% - 40px);
+	margin:0 auto;
+}
+
+.main-wrapper{
+	max-width:1280px;
+	margin:0 auto;
+}
+
+.border-outter{
+	padding:20px;
+}
+
+body, html{
+	overflow-x: hidden;
+}

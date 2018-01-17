@@ -1,0 +1,172 @@
+.work-single-info{
+	@include clearfix;
+	position: relative;
+	overflow:hidden;
+	padding:30px 30px 60px 30px;
+
+	&__intro{
+		margin-bottom:60px;
+		color:white;
+	}
+
+	&__wrapper{
+		@include clearfix;
+
+		&__text-con{
+
+			&__sec-title{
+				position:absolute;
+				left:0;
+				top:0;
+				transform:rotate(-90deg);
+			}
+		}
+	}
+
+	&__details{
+
+		&__wrap{
+			position: relative;
+			margin-bottom:15px;
+			padding-bottom:15px;
+
+			h4{
+				font-size: 1em;
+				opacity: 0.4;
+				margin-bottom:5px;
+			}
+			p{
+				color:white;
+			}
+
+			&:after{
+				content:"";
+				position: absolute;
+				bottom:0;
+				left:0;
+				width:25px;
+				height:1px;
+				background:rgba(0,0,0,.1);
+			}
+
+			&:last-child{
+				&:after{
+					display: none;
+				}
+			}
+		}
+	}
+
+
+	&__small-desc{
+
+		&__text{
+			color:white;
+
+			strong{
+				font-weight:bold;
+			}
+
+		}
+	}
+
+	&__large-desc{
+
+		&__text{
+			color:white;
+			font-size:1.2em;
+
+			strong{
+				font-weight:bold;
+			}
+		}
+	}
+
+}
+
+@include screen(medium){
+	.work-single-info{
+		padding:0 0 120px 0;
+		
+		&__intro{
+			margin-bottom:60px;
+			color:white;
+		}
+
+		&__wrapper{
+			width:60%;
+			@include clearfix;
+			padding-left:60px;
+
+			&__text-con{
+				position:relative;
+				float:right;
+				width: 80%;
+
+				&__sec-title{
+					position:absolute;
+					left:0;
+					top:0;
+					transform:rotate(-90deg);
+				}
+			}
+		}
+
+		&__details{
+			position: absolute;
+			right:60px;
+			top:0;
+			width:220px;
+
+			&__wrap{
+				position: relative;
+				margin-bottom:15px;
+				padding-bottom:15px;
+
+				h4{
+					font-size: 1em;
+					opacity: 0.4;
+					margin-bottom:5px;
+				}
+				p{
+					color:white;
+				}
+
+				&:after{
+					content:"";
+					position: absolute;
+					bottom:0;
+					left:0;
+					width:25px;
+					height:1px;
+					background:rgba(0,0,0,.1);
+				}
+
+				&:last-child{
+					&:after{
+						display: none;
+					}
+				}
+			}
+		}
+
+
+		&__small-desc{
+			float:left;
+			width:25%;
+		}
+
+		&__large-desc{
+			float:left;
+			max-width:65%;
+			margin-left:50px;
+
+			&__text{
+				color:white;
+				// font-size:1.2em;
+				padding-right:10%;
+
+			}
+		}
+	}
+}

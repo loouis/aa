@@ -1,0 +1,15 @@
+.shape-reveal{
+	position:absolute;
+	width:100%;
+	height:100vh;
+	// background:red;
+	right: -50%;
+}
+.shape-reveal--1{
+	// position:absolute;
+	width:2600px;
+	height:2600px;
+	background:#006664;
+	transform: rotate(-95deg) translate(102%, -50%);
+	// transform:rotate(-54deg) translate(69%, -30%);
+}

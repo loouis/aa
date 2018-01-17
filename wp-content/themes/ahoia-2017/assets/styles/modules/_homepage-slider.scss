@@ -1,0 +1,287 @@
+.full-page-slider__controls{
+	position: fixed;
+	z-index: 11;
+	right:100px;
+	bottom:180px;
+	background: red;
+}
+
+.slider-info{
+	position:fixed;
+	top:50%;bottom:50%;left:50%;right:50%;
+	margin-top:-250px;
+	margin-left:-350px;
+	// margin:0 auto;
+	width:700px;
+	height:460px;
+	z-index: 10;
+	// background:green;
+
+	&__shape{
+		position:absolute;
+		width:100%;
+		opacity:0.85;
+		fill:black;
+		top:0;
+		left:0;
+
+		svg{
+			width:100%;
+			height:auto;
+
+			transition: fill .25s ease-in-out .2s;
+		}
+	}
+
+	&__text-con{
+
+		&__text-con__{
+			position:absolute;
+			// top:100px;
+			// left:120px;
+			z-index:99;
+		}
+
+		&__item{
+			position:relative;
+			z-index: 120;
+			top:100px;
+			left:100px;
+    	max-width: 400px;
+			// opacity:0;
+
+			// &--active{
+			// 	opacity:1;
+			// }
+
+			.container{
+				position: absolute;
+				opacity:0;
+				transform:translate(0,20px);
+				visibility: hidden;
+
+
+				@include clearfix;
+			}
+		}
+
+		&__title{
+			// position:absolute;
+			top:0;
+			color:white;
+			text-transform:uppercase;
+			font-size:5em;
+
+		}
+
+		&__text{
+			color:white;
+			margin:10px 0 0 6px;
+			font-weight:600;
+			font-size: 1.1em;
+			line-height: 1.4em;
+		}
+
+		&:hover{
+			.btn{
+				&:before{
+					transform: scale(1) rotate(45deg);
+				}
+
+				i{
+					&:after, &:before{
+						background:black;
+					}
+				}
+			}
+		}
+	}
+}
+
+// .full-page-slider{
+// 	overflow:hidden;
+// 	height:100vh;
+// }
+
+// .home-slider{
+// 	// overflow:hidden;
+
+// 	&__slide{
+// 		height:100vh;
+// 		// background:Red;
+// 		width:100%;
+// 		background: url(images/work-image--2.jpg);
+// 		background-size:cover;
+// 		background-attachment: fixed;
+// 		// background-position:fixed;
+
+// 		&--2{
+// 			background: url(images/work-image.jpg);
+// 		}
+// 	}
+// }
+
+.home-slider{
+	&__slide{
+		width:101%;
+		height:101%;
+		// background: url(assets/images/work-image--2.jpg);
+		background-size: cover;
+		// background-position:fixed;
+		// background-attachment: fixed;
+	}
+}
+
+.image-objects{
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	background: pink;
+
+	&__obj{
+		position: absolute;
+		width:101%;
+		height:101%;
+		background-size: cover !important;
+		background-position:center center;
+		bottom:0;
+		left:0;
+		right:0;
+
+
+		&--1{
+			z-index: 1;
+		}
+
+		&--2{
+			z-index: 2;
+		}
+		&--3{
+			z-index: 3;
+		}
+		&--4{
+			z-index: 4;
+		}
+	}
+}
+
+// body.fp-viewing-0{
+// 	.main-header__links-angle-bg{
+// 		background:red;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.slider-info__shape{
+// 		&__con{
+// 			svg{
+// 				fill:red;
+// 				transition: fill .25s ease-in-out .25s;
+// 			}
+// 		}
+// 	}
+// 	#top, #bottom, #left, #right{
+// 		background:red;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.ahoia-logo__letter{
+// 		fill:red;
+// 		transition: fill .25s ease-in-out .25s;
+// 	}
+// }
+// body.fp-viewing-1{
+// 	.main-header__links-angle-bg{
+// 		background:blue;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.slider-info__shape{
+// 		&__con{
+// 			svg{
+// 				fill:blue;
+// 				transition: fill .25s ease-in-out .25s;
+// 			}
+// 		}
+// 	}
+// 	#top, #bottom, #left, #right{
+// 		background:blue;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.ahoia-logo__letter{
+// 		fill:blue;
+// 		transition: fill .25s ease-in-out .25s;
+// 	}
+// }
+// body.fp-viewing-2{
+// 	.main-header__links-angle-bg{
+// 		background:green;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.slider-info__shape{
+// 		&__con{
+// 			svg{
+// 				fill:green;
+// 				transition: fill .25s ease-in-out .25s;
+// 			}
+// 		}
+// 	}
+// 	#top, #bottom, #left, #right{
+// 		background:green;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.ahoia-logo__letter{
+// 		fill:green;
+// 		transition: fill .25s ease-in-out .25s;
+// 	}
+// }
+// body.fp-viewing-3{
+// 	.main-header__links-angle-bg{
+// 		background:black;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.slider-info__shape{
+// 		&__con{
+// 			svg{
+// 				fill:black;
+// 				transition: fill .25s ease-in-out .25s;
+// 			}
+// 		}
+// 	}
+// 	#top, #bottom, #left, #right{
+// 		background:black;
+// 		transition: background .25s ease-in-out .25s;
+// 	}
+// 	.ahoia-logo__letter{
+// 		fill:black;
+// 		transition: fill .25s ease-in-out .25s;
+// 	}
+// }
+
+.section{
+	overflow:hidden;
+		// height:100vh;
+		// background:Red;
+		// width:100%;
+		// background: url(images/work-image--2.jpg);
+		// background-size: cover;
+		// background-attachment: fixed;
+		// background-position:fixed;
+
+	&--2{
+		background: url(images/work-image.jpg);
+	}
+}
+
+// .home-slider__slide{
+// 	transform:scale(1);
+// 	transition: transform 2s ease-in-out;
+// }
+//
+// .active .home-slider__slide{
+// 	transform:scale(1.1);
+// 	transition: transform 11s ease-in-out;
+// }
+
+// body.fp-viewing-0 .slider-info__text-con__item--active,
+// body.fp-viewing-1 .slider-info__text-con__item--active,
+// body.fp-viewing-2 .slider-info__text-con__item--active,
+// body.fp-viewing-3 .slider-info__text-con__item--active {
+// 	opacity:1;
+// }

@@ -1,0 +1,147 @@
+.all-work{
+	@include clearfix;
+	// max-width:1280px;
+	margin: 0 auto;
+
+	&__item{
+		position:relative;
+		float:left;
+		width:50%;
+		height:500px;
+		// background:#00CCC8;
+		overflow:hidden;
+		// padding:5%;
+		// background-image: url('images/all-work-image.jpg');
+		background-size:cover;
+		background-repeat:no-repeat;
+
+		&:hover .all-work__item__img{
+			opacity:1;
+		}
+
+		&__img{
+			position:absolute;
+			background-size:cover;
+			height:120%;
+			width:120%;
+			z-index:0;
+			top:-10%;
+			left:-10%;
+			opacity:0.6;
+			background-position: 50% 50%;
+
+			transition: opacity .3s ease-in-out;
+		}
+
+
+		&:hover{
+			.all-work__item__text-con{
+				// opacity:1;
+
+				&__shape{
+					opacity:1;
+					visibility: visible;
+				}
+			}
+		}
+
+		&__text-con{
+			position:relative;
+			text-transform:uppercase;
+			text-align: center;
+			z-index: 2;
+			padding:5%;
+
+			// top:0;
+			// left:0;
+			// width:100%;
+			// height:100%;
+			// // background: rgba(red, 0.8);
+			// // opacity:0;
+			// z-index:10;
+			// color:white;
+			// padding:40px;
+
+			&__shape{
+				opacity:0;
+				visibility: hidden;
+				transition: opacity .3s ease-in-out;
+
+
+				svg{
+					// fill:red;
+					width:100%;
+					height:auto;
+				}
+			}
+
+			&__title{
+				position:absolute;
+				z-index: 2;
+				width:100%;
+				top:50%;
+				bottom:50%;
+				left:0;
+				margin-top:-50px;
+				// opacity:0;
+				// bottom:60px;
+				color:white;
+				font-size: 2.8em;
+				margin-bottom:0;
+				margin-left:-4px;
+
+			}
+
+			&__text{
+				position:absolute;
+				color:white;
+				font-weight:400;
+				font-size:18px;
+				top:54%;
+				left:0;
+				z-index: 2;
+				width:100%;
+			}
+
+			&__button{
+				width:60px;
+				height:60px;
+				background:white;
+				border-radius:50%;
+			}
+		}
+	}
+}
+
+.levis{
+	& svg{
+		fill:$levis;
+		opacity:0.9;
+	}
+}
+
+.tissot-watches{
+	& svg{
+		fill:lighten($tissot-watches, 10%);
+		opacity:0.9;
+	}
+}
+
+.mct{
+	& svg{
+		fill:$mct;
+		opacity:0.9;
+	}
+}
+
+.btc{
+	& svg{
+		fill:$btc;
+	}
+}
+
+.btc{
+	& svg{
+		fill:$btc;
+	}
+}

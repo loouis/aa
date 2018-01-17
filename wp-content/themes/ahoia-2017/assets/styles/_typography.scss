@@ -1,0 +1,73 @@
+$base-font-size: 16px;
+$base-line-height: 36px;
+
+body{
+	font-size: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	font-family:$brandHeadFont;
+	margin-top: 0;
+}
+
+
+h1 {
+	font-size: 3.15em;
+	font-weight:900;
+	line-height:0.85em;
+
+	&.largest{
+		font-size:4.2em;
+	}
+}
+
+h2 {
+	font-size: 4em;
+    margin-left: -3px;
+    line-height: 72px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+h3 {
+	font-size: 1.8em;
+    line-height: 1.266em;
+    margin-top: -2px;
+    font-weight: 700;
+    margin-bottom:$base*2;
+}
+
+h4 {
+	font-size: 1.55em;;
+	font-weight:700;
+	line-height:1.240em;
+}
+
+h5 {
+	font-size: 1.25em;;
+	font-weight:700;
+	line-height:1.240em;
+}
+
+
+p{
+	font-family:$brandBodyFont;
+	font-size: em(14px);
+	line-height:$base*5;
+	color:$primFontColor;
+}
+
+@include screen(medium){
+	h1{
+		font-size:5em;
+
+		&.largest{
+			font-size:6em;
+		}
+	}
+}
