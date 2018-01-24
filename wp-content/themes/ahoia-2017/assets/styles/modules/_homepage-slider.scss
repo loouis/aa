@@ -1,19 +1,83 @@
 .full-page-slider__controls{
 	position: fixed;
-	z-index: 11;
-	right:100px;
+	z-index: 20;
+	right:20px;
+	width:60px;
 	bottom:180px;
-	background: red;
+
+	body.fp-viewing-0 &{
+		.bx-slider__controls__arrows--prev{
+			opacity:0;
+		}
+	}
+
+	.bx-slider__controls__arrows--prev{
+		opacity:1;
+		transition: opacity .25s ease-in-out;
+	}
+
+	.bx-slider__controls__arrows{
+		transform-origin: center;
+
+		&:after{
+			background:white;
+		}
+
+		i{
+			opacity:1;
+			z-index: 2;
+
+			&:before, &:after{
+				background:#2d2d2d !important;
+
+			}
+		}
+
+
+		&--prev{
+			cursor:n-resize;
+			i{
+				transform: rotate(90deg);
+				top: 31px;
+				left: 13px;
+			}
+
+		}
+		&--next{
+			cursor:s-resize;
+			i{
+				transform: rotate(90deg);
+				top: 31px;
+				left: 13px;
+			}
+
+		}
+	}
+
+	.bx-slider__controls__arrows--prev{
+
+	}
+	.bx-slider__controls__arrows--next{
+		i{
+
+		}
+	}
+
+	a{
+		display: block;
+	}
 }
+
 
 .slider-info{
 	position:fixed;
-	top:50%;bottom:50%;left:50%;right:50%;
-	margin-top:-250px;
-	margin-left:-350px;
+	@include clearfix;
+	top:30%;
+	// bottom:50%;
+
 	// margin:0 auto;
-	width:700px;
-	height:460px;
+	width:100%;
+	// height:460px;
 	z-index: 10;
 	// background:green;
 
@@ -45,9 +109,9 @@
 		&__item{
 			position:relative;
 			z-index: 120;
-			top:100px;
-			left:100px;
-    	max-width: 400px;
+			top:20px;
+			left:30px;
+    	max-width: 500px;
 			// opacity:0;
 
 			// &--active{
@@ -70,11 +134,12 @@
 			top:0;
 			color:white;
 			text-transform:uppercase;
-			font-size:5em;
+			font-size:4em;
 
 		}
 
 		&__text{
+			display: none;
 			color:white;
 			margin:10px 0 0 6px;
 			font-weight:600;
@@ -98,28 +163,6 @@
 	}
 }
 
-// .full-page-slider{
-// 	overflow:hidden;
-// 	height:100vh;
-// }
-
-// .home-slider{
-// 	// overflow:hidden;
-
-// 	&__slide{
-// 		height:100vh;
-// 		// background:Red;
-// 		width:100%;
-// 		background: url(images/work-image--2.jpg);
-// 		background-size:cover;
-// 		background-attachment: fixed;
-// 		// background-position:fixed;
-
-// 		&--2{
-// 			background: url(images/work-image.jpg);
-// 		}
-// 	}
-// }
 
 .home-slider{
 	&__slide{
@@ -136,7 +179,8 @@
 	width:100%;
 	height:100%;
 	overflow: hidden;
-	background: pink;
+	background: black;
+
 
 	&__obj{
 		position: absolute;
@@ -146,142 +190,60 @@
 		background-position:center center;
 		bottom:0;
 		left:0;
+		top:0;
 		right:0;
 
 
-		&--1{
+		&:nth-child(1){
 			z-index: 1;
 		}
 
-		&--2{
+		&:nth-child(2){
 			z-index: 2;
 		}
-		&--3{
+		&:nth-child(3){
 			z-index: 3;
 		}
-		&--4{
+		&:nth-child(4){
 			z-index: 4;
 		}
 	}
 }
 
-// body.fp-viewing-0{
-// 	.main-header__links-angle-bg{
-// 		background:red;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.slider-info__shape{
-// 		&__con{
-// 			svg{
-// 				fill:red;
-// 				transition: fill .25s ease-in-out .25s;
-// 			}
-// 		}
-// 	}
-// 	#top, #bottom, #left, #right{
-// 		background:red;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.ahoia-logo__letter{
-// 		fill:red;
-// 		transition: fill .25s ease-in-out .25s;
-// 	}
-// }
-// body.fp-viewing-1{
-// 	.main-header__links-angle-bg{
-// 		background:blue;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.slider-info__shape{
-// 		&__con{
-// 			svg{
-// 				fill:blue;
-// 				transition: fill .25s ease-in-out .25s;
-// 			}
-// 		}
-// 	}
-// 	#top, #bottom, #left, #right{
-// 		background:blue;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.ahoia-logo__letter{
-// 		fill:blue;
-// 		transition: fill .25s ease-in-out .25s;
-// 	}
-// }
-// body.fp-viewing-2{
-// 	.main-header__links-angle-bg{
-// 		background:green;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.slider-info__shape{
-// 		&__con{
-// 			svg{
-// 				fill:green;
-// 				transition: fill .25s ease-in-out .25s;
-// 			}
-// 		}
-// 	}
-// 	#top, #bottom, #left, #right{
-// 		background:green;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.ahoia-logo__letter{
-// 		fill:green;
-// 		transition: fill .25s ease-in-out .25s;
-// 	}
-// }
-// body.fp-viewing-3{
-// 	.main-header__links-angle-bg{
-// 		background:black;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.slider-info__shape{
-// 		&__con{
-// 			svg{
-// 				fill:black;
-// 				transition: fill .25s ease-in-out .25s;
-// 			}
-// 		}
-// 	}
-// 	#top, #bottom, #left, #right{
-// 		background:black;
-// 		transition: background .25s ease-in-out .25s;
-// 	}
-// 	.ahoia-logo__letter{
-// 		fill:black;
-// 		transition: fill .25s ease-in-out .25s;
-// 	}
-// }
+@include screen(medium){
+	.slider-info{
+		margin-top:-250px;
+		margin-left:-350px;
+		// margin:0 auto;
+		width:700px;
+		height:460px;
+		left:50%;
+		right:50%;
+		top:50%;
 
-.section{
-	overflow:hidden;
-		// height:100vh;
-		// background:Red;
-		// width:100%;
-		// background: url(images/work-image--2.jpg);
-		// background-size: cover;
-		// background-attachment: fixed;
-		// background-position:fixed;
+		&__text-con{
 
-	&--2{
-		background: url(images/work-image.jpg);
+			&__title{
+				font-size:5em;
+			}
+
+			&__text{
+				display: block;
+			}
+			&__item{
+				top:100px;
+				left:100px;
+
+				.container{
+
+				}
+			}
+		}
 	}
+
+	.full-page-slider__controls{
+		bottom:190px;
+		right:50px;
+	}
+
 }
-
-// .home-slider__slide{
-// 	transform:scale(1);
-// 	transition: transform 2s ease-in-out;
-// }
-//
-// .active .home-slider__slide{
-// 	transform:scale(1.1);
-// 	transition: transform 11s ease-in-out;
-// }
-
-// body.fp-viewing-0 .slider-info__text-con__item--active,
-// body.fp-viewing-1 .slider-info__text-con__item--active,
-// body.fp-viewing-2 .slider-info__text-con__item--active,
-// body.fp-viewing-3 .slider-info__text-con__item--active {
-// 	opacity:1;
-// }

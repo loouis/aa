@@ -932,6 +932,13 @@
 		"oA": 2,
 		"oAP": "\/build\/templates\/homepage.php",
 		"oF": 0
+		},
+	"\/templates\/projects.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/templates\/projects.php",
+		"oF": 0
 		}
 	},
 "hooks": [

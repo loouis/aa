@@ -14,6 +14,12 @@
 
 		<?php wp_head(); ?>
 
+		<script>
+    	document.createElement( "picture" );
+  	</script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js" async></script>
+
+		</script>
 
 	</head>
 	<body <?php body_class(); ?>>
@@ -28,12 +34,17 @@
 
 	<header class="main-header">
 
+		<!-- <div class="main-header__close-btn">
+			CLOSE
+
+		</div> -->
+
 		<nav class="main-header__nav">
 			<ul class="main-header__nav__links">
-				<li class="main-header__nav__links__link"><a href="#">Home</a></li>
-				<li class="main-header__nav__links__link"><a href="#">Work</a></li>
-				<li class="main-header__nav__links__link"><a href="#">About</a></li>
-				<li class="main-header__nav__links__link"><a href="#">Contact</a></li>
+				<li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>">Home</a></li>
+				<li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>/projects">Projects</a></li>
+				<li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>/about">About</a></li>
+				<li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>/contact">Contact</a></li>
 			</ul>
 		</nav>
 		<div class="main-header__contact-details">

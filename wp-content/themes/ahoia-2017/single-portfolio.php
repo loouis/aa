@@ -9,7 +9,7 @@ get_header();
 
 <style type="text/css">
   body, html{
-		background:<?php the_field('border_color');?>;
+		background-color:<?php the_field('border_color');?>;
 	}
   .main-header__nav a, .main-header__contact-details a, .main-header__contact-details p{
     color:<?php the_field('portfolio_intro_bg_color');?>;
@@ -52,52 +52,47 @@ get_header();
 
 			<div class="work-single-info__wrapper">
 
-				<h3 class="work-single-info__intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum sapiente veniam sed, ex explicabo ad cupiditate itaque assumenda illum voluptate.</h3>
+				<h3 class="work-single-info__intro"><?php the_field('port-text_opening-para');?></h3>
+
+        <a href="#0" class="work-single-info__read-more">
+          <i></i>
+          <p>Read more</p>
+        </a>
 
 				<div class="work-single-info__wrapper__text-con">
           <article class="work-single-info__large-desc">
-						<p class="work-single-info__large-desc__text"><strong>How… </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis perferendis maxime nisi vero velit sed mollitia tempora eaque delectus est quis sapiente, hic laborum vitae inventore quae possimus repudiandae itaque? Perspiciatis perferendis maxime nisi vero velit sed mollitia tempora eaque delectus est quis sapiente, hic laborum vitae inventore quae possimus repudiandae itaque?</p>
+						<p class="work-single-info__large-desc__text"><?php the_field('port-text_the-project');?></p>
 					</article>
-					<article class="work-single-info__small-desc">
-						<p class="work-single-info__small-desc__text"><strong>why? </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis perferendis maxime nisi vero velit sed mollitia tempora eaque delectus est quis sapiente, hic laborum vitae inventore quae possimus repudiandae itaque?</p>
-					</article>
+          <?php if(get_field('port-text_client-quote')): ?>
+  					<article class="work-single-info__small-desc">
+              <span>
+                <i><p>“</p></i>
+              </span>
+  						<p class="work-single-info__small-desc__text"><?php the_field('port-text_client-quote');?></p>
+  					</article>
+          <?php endif; ?>
 				</div><!-- //work-single-info__wrapper__text-con -->
 
 			</div>
 
       <div class="work-single-info__details">
         <ul>
-          <li class="work-single-info__details__wrap">
-            <h4>Project</h4>
-            <p>Website Experience</p>
-          </li>
-          <li class="work-single-info__details__wrap">
-            <h4>Deliverables</h4>
-            <p>Concept, Design, UX Design, Development</p>
-          </li>
-          <li class="work-single-info__details__wrap">
-            <h4>Other info</h4>
-            <p>Time frame</p>
-          </li>
-          <li class="work-single-info__details__wrap">
-            <a href="#"><p>Website address</p></a>
-          </li>
+          <?php while( have_rows('port-b-info_repeater') ): the_row(); ?>
+            <li class="work-single-info__details__wrap">
+              <h4><?php the_sub_field('port-b-info_title');?></h4>
+              <p><?php the_sub_field('port-b-info_text');?></p>
+            </li>
+          <?php endwhile;  ?>
+          <?php if( get_field('port-b-info_link') ): ?>
+            <li class="work-single-info__details__wrap">
+              <a href="<?php echo the_field('port-b-info_link');?>"><p>Website address</p></a>
+            </li>
+          <?php endif; ?>
         </ul>
       </div>
 		</section>
 
-		<!-- <section class="work-single-hero full-hero full-hero--3" style="background-image:url('<?php echo get_template_directory_uri();?>/assets/images/levis-hero.jpg');">
-
-      <div class="shape-reveal wow slideInUp" data-wow-duration="5s">
-				<div class="shape-reveal--1"></div>
-			</div>
-
-			<div class="wrapper">
-
-			</div>
-		</section> -->
-
-    <section>
+    <section class="single-work__images">
       <?php
 
 // check if the flexible content field has rows of data
@@ -129,7 +124,11 @@ if( have_rows('flex_port_content') ):
 
         					$image = get_sub_field('slider_images_img');?>
 
-                  <img src="<?php echo $image;?>" alt="">
+                  <picture>
+        						<source media="(min-width: 1024px)" data-srcset="<?php echo $image;?> 1x, <?php echo $image;?> 2x" />
+        						<source media="(min-width: 500px)" data-srcset="<?php echo $image;?> 1x, <?php echo $image;?> 2x" />
+        						<img class="lazy" alt="Mocassini" data-src="<?php echo $image;?>">
+        					</picture>
 
         				<?php endwhile;?>
 
@@ -141,8 +140,11 @@ if( have_rows('flex_port_content') ):
 
         elseif( get_row_layout() == 'images' ): ?>
 
-
-         <img src="<?php echo the_sub_field('flex_port_content_img');?>" alt="">
+        <picture>
+          <source media="(min-width: 1024px)" data-srcset="<?php echo the_sub_field('flex_port_content_img');?> 1x, <?php echo the_sub_field('flex_port_content_img');?> 2x" />
+          <source media="(min-width: 500px)" data-srcset="<?php echo the_sub_field('flex_port_content_img');?> 1x, <?php echo the_sub_field('flex_port_content_img');?> 2x" />
+          <img class="lazy" alt="Mocassini" data-src="<?php echo the_sub_field('flex_port_content_img');?>">
+        </picture>
 
     <?php endif ;endwhile; else : endif; ?>
 

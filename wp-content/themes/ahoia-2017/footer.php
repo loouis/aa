@@ -5,13 +5,26 @@
 			</p>
 		</footer>
 
+		<script>
+			(function(w, d){
+				var b = d.getElementsByTagName('body')[0];
+				var s = d.createElement("script"); s.async = true;
+				var v = !("IntersectionObserver" in w) ? "8.6.0" : "10.4.1";
+				s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
+				w.lazyLoadOptions = {}; // Your options here. See "recipes" for more information about async.
+				b.appendChild(s);
+			}(window, document));
+		</script>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineLite.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/easing/EasePack.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/plugins/ScrollToPlugin.min.js"></script>
 		<script src="<?php echo get_template_directory_uri();?>/assets/js/scripts-min.js"></script>
+
 
 		<?php wp_footer(); ?>
 

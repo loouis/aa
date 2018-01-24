@@ -1,5 +1,9 @@
 (function ($, root, undefined) {
 
+
+
+// var myLazyLoad = new LazyLoad();
+
 	$(function () {
 
 		// Wow
@@ -7,6 +11,19 @@
 		    mobile: false,        // trigger animations on mobile devices (default is true)
 		});
 		wow.init();
+
+		// Click toggle function
+		$.fn.clickToggle = function(func1, func2) {
+        var funcs = [func1, func2];
+        this.data('toggleclicked', 0);
+        this.click(function() {
+            var data = $(this).data();
+            var tc = data.toggleclicked;
+            $.proxy(funcs[tc], this)();
+            data.toggleclicked = (tc + 1) % 2;
+        });
+        return this;
+    };
 
 		//---- Global variables
 		var win = $(window),
@@ -24,6 +41,7 @@
 			ahoiaLogoALast = $(".ahoia-logo__letter--alast"),
 			ahoiaLogoHideParts = $('.ahoia-logo__letter--hide'),
 			ahoiaLogo = $('.ahoia-logo'),
+			closeMenu = $('.main-header__close-btn'),
 		// box = $('.box'),
 		tl = new TimelineLite({paused:true});
 
@@ -36,9 +54,24 @@
 			.staggerTo(mainHeaderLink, 0.2, {y:-20, autoAlpha:1, ease:Power1.easeOut}, 0.1, '-=0.5')
 			.staggerTo(mainHeaderContactDetailsItem, 0.2, {y:-20, autoAlpha:1, ease:Power1.easeOut}, 0.1, '-=0.5');
 
-		mainHeader.hover(menuOver, menuOut);
 
-		// mainHeaderAngle.animation = tl;
+		if(winWidth >= 900){
+			mainHeader.hover(menuOver, menuOut);
+		}else{
+
+			// Mobile navigation functionality
+			// Click logo to open nav
+			ahoiaLogo.clickToggle(function() {
+				mainHeader.addClass("main-header--open");
+				$.fn.fullpage.setAllowScrolling(false);
+			},
+			function() {
+				$.fn.fullpage.setAllowScrolling(true);
+				mainHeader.removeClass("main-header--open");
+			});
+
+		}
+
 
 		function menuOver(){
 			tl.play();
@@ -48,32 +81,9 @@
 			tl.reverse();
 		}
 
-		//---- Parrallax mouseover
-		var parallaxContainer = $('.full-page-slider'),
-		parallaxItems = parallaxContainer.find(".parallax"),
-		fixer = -0.001;
-
-		$(document).on("mousemove", function(event){
-
-			var pageX =  event.pageX - (parallaxContainer.width() * 0.5);  //get the mouseX - negative on left, positive on right
-			var pageY =  event.pageY - (parallaxContainer.height() * 0.5); //same here, get the y. use console.log(pageY) to see the values
 
 
-  			//here we move each item
-			parallaxItems.each(function(){
 
-				var item 	= $(this);
-				var speedX	= item.data("speed-x");
-				var speedY	= item.data("speed-y");
-
-
-				TweenLite.to(item, 0.8, {
-					x: (item.position().left + pageX * speedX )*fixer,    //calculate the new X based on mouse position * speed
-					y: (item.position().top + pageY * speedY)*fixer
-				});
-
-			});
-		});
 
 
 		//------- Portfolio scroll scroll
@@ -83,6 +93,13 @@
 			e.preventDefault();
 			TweenLite.to(window, 1.2, {scrollTo:{y:$('.work-single-info').position().top-80}, ease:Circ.easeInOut});
 	  });
+
+		//------- Single portfolio read more
+		$('.work-single-info__read-more').on('click', function(e){
+			e.preventDefault();
+			$(this).hide();
+			$('.work-single-info__wrapper__text-con').show();
+		});
 
 		// //------ Bx Slider init
 		//  var slider = $('#bx-slider').bxSlider({
@@ -125,11 +142,7 @@
 
 
 		//-------  Homepage triangle animation
-		var sliderTextOne = $('.slider-info__text-con__item--0'),
-				sliderTextTwo = $('.slider-info__text-con__item--1'),
-				sliderTextThree = $('.slider-info__text-con__item--2'),
-				sliderTextFour = $('.slider-info__text-con__item--3'),
-				sliderTextContainer = $('.slider-info__text-con'),
+		var sliderTextContainer = $('.slider-info__text-con'),
 				sectionActive = $(".section.active"),
 				sectionActiveAttr = sectionActive.data('slider'),
 				shapeActive = $('.slider-info__text-con__item--active'),
@@ -140,16 +153,19 @@
 
 
 
-		$(document).on('click', '#home_slideDown', function(){
+		$(document).on('click', '#home_slideDown', function(e){
+			e.preventDefault();
 		  $.fn.fullpage.moveSectionDown();
 		});
 
-		$(document).on('click', '#home_slideUp', function(){
+		$(document).on('click', '#home_slideUp', function(e){
+			e.preventDefault();
 			$.fn.fullpage.moveSectionUp();
 		});
 
 		$('#fullpage').fullpage({
-			scrollBar: true,
+			// scrollBar: true,
+			loopBottom: true,
 			fixedElements: '#slider-info, .full-page-slider__controls',
 
 			afterLoad: function(anchorLink, index){
@@ -212,6 +228,37 @@
 				'transform' : "translateY(" + (scrolled*-0.008) + "em)"
 			});
 		};
+
+
+		if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+			//---- Parrallax mouseover
+			var parallaxContainer = $('.full-page-slider'),
+					parallaxItems = parallaxContainer.find(".parallax"),
+					fixer = -0.001;
+
+				$(document).on("mousemove", function(event){
+
+					var pageX =  event.pageX - (parallaxContainer.width() * 0.5);  //get the mouseX - negative on left, positive on right
+					var pageY =  event.pageY - (parallaxContainer.height() * 0.5); //same here, get the y. use console.log(pageY) to see the values
+
+
+						//here we move each item
+						parallaxItems.each(function(){
+
+							var item 	= $(this);
+							var speedX	= item.data("speed-x");
+							var speedY	= item.data("speed-y");
+
+
+							TweenLite.to(item, 0.8, {
+								x: (item.position().left + pageX * speedX)*fixer,    //calculate the new X based on mouse position * speed
+								y: (item.position().top + pageY * speedY)*fixer
+							});
+
+						});
+					});
+		}
+
 
 	});
 

@@ -1,4 +1,20 @@
+// Ahoia logo animation
+body:not(.home) .ahoia-logo{
+	&__letter{
+		// display:none;
 
+		&--hide{
+			visibility: hidden;
+			transform: translate(0,3px);
+		}
+		&--afirst{
+			transform: translate(20px,0);
+		}
+		&--alast{
+			transform: translate(-21px,0);
+		}
+	}
+}
 
 .main-header{
 	position:fixed;
@@ -8,15 +24,49 @@
 	height:20px;
 	z-index:80;
 
+	&--open{
+		.main-header{
+
+			&__nav{
+				opacity:1;
+				visibility: visible;
+
+				&__links{
+					&__link{
+						opacity: 1;
+						
+					}
+				}
+			}
+
+			// &__close-btn{
+			// 	opacity:1;
+			// 	visibility: visible;
+			// }
+		}
+	}
+
 	.ahoia-logo__letter{
 		transition: fill .25s ease-in-out .2s;
 	}
+
+	// &__close-btn{
+	// 	width:50px;
+	// 	height:50px;
+	// 	background:Red;
+	// 	position: absolute;
+	// 	top:20px;
+	// 	left:20px;
+	// 	z-index: 93;
+	// 	opacity:0;
+	// 	visibility: collapse;
+	// }
 
 	&__logos{
 		position: absolute;
 		right: 10px;
 		top: 10px;
-		z-index: 90;
+		z-index: 92;
 		width:100px;
 
 		svg{
@@ -62,19 +112,24 @@
 	}
 
 	&__nav{
+		position: fixed;
 		float:left;
-		position:relative;
 		padding:100px 7% 0 7%;
-		width:30%;
+		height:100%;
+		width:100%;
 		z-index:91;
 		opacity:0;
 		visibility: collapse;
+		background:#2d2d2d;
+
+
 
 		&__links{
 
 			&__link{
 				font-family: $brandBodyFont;
 				font-weight:bold;
+				text-align: right;
 				font-size:2.6em;
 				padding-bottom:20px;
 				text-transform:uppercase;
@@ -112,6 +167,20 @@
 			right: 26px;
 			top: 18px;
 			width:115px;
+		}
+
+		&__nav{
+			background:none;
+			position:relative;
+			width:30%;
+
+			&__links{
+
+				&__link{
+					text-align: left;
+				}
+
+			}
 		}
 
 		&__links-angle-bg{
