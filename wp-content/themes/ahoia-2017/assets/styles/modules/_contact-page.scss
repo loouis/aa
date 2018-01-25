@@ -1,0 +1,218 @@
+body.contact{
+  background:$darkGrey;
+}
+
+.left-content{
+  position: relative;
+  width:100%;
+  background:$darkGrey;
+  color:white;
+  z-index: 1;
+
+  .content{
+    @include clearfix;
+    padding:60px 30px;
+
+    h3.hey{
+      display:inline-block;
+      position: relative;
+      text-transform: uppercase;
+      font-size:18px;
+
+      &:after{
+        content:"";
+        position:absolute;
+        left:0;
+        bottom:-5px;
+        height:1px;
+        width:100%;
+        background:white;
+      }
+    }
+
+    .ahoia-contact{
+      margin-top:16%;
+
+      h1{
+        font-size: 2em;
+        line-height: 1em;
+      }
+
+      &__details{
+        @include clearfix;
+        width:100%;
+        margin-top:16%;
+
+
+        div{
+          float:left;
+          margin-right:30px;
+          margin-bottom:40px;
+
+          &:last-child{
+            margin-right:0;
+          }
+
+          h3{
+            font-size:1.2em;
+            margin-bottom:20px;
+          }
+
+          a{
+            color:white;
+            font-family:$brandBodyFont;
+            display:block;
+            padding:8px 0;
+          }
+        }
+      }
+    }
+
+  }
+
+  .ahoia-time-place{
+    @include clearfix;
+
+    &__location{
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color:#b9b9b9;
+    }
+    &__time{
+      &__clock{
+        @include clearfix;
+        clear:both;
+        position: relative;
+        display: inline-block;
+        padding-top:30px;
+
+        p{
+          display: inline-block;
+          font-size:4em;
+          font-weight:100;
+          color:white;
+          line-height: 1.1em;
+        }
+
+        .am-pm{
+          margin-bottom: 10px;
+          position: absolute;
+          right: -32px;
+          bottom: 28px;
+          font-size:16px;
+        }
+      }
+      &__open-hrs{
+        display: inline-block;
+        margin-left: 3px;
+        margin-bottom: -4px;
+
+        p, i{
+          float:left;
+        }
+
+        i{
+          width:24px;
+          height:24px;
+
+          svg path{
+            fill:white;
+          }
+        }
+        p{
+          font-size: 12px;
+          margin-top:2px;
+          margin-left:4px;
+          text-transform: uppercase;
+          color:white;
+          font-weight:100;
+        }
+
+      }
+    }
+  }
+}
+
+@include screen(medium){
+  .contact-page{
+    height:100vh;
+    overflow: hidden;
+  }
+
+
+
+
+  .left-content, .right-content{
+    float:left;
+    width:50%;
+  }
+
+  .content{
+    height:100vh;
+  }
+
+  .left-content{
+
+    .content{
+      .ahoia-contact{
+        margin-top:10%;
+
+        h1{
+          font-size: 2.6em;
+          line-height: 1.2em;
+        }
+
+        &__details{
+          div{
+            width:45%;
+            margin-right:4%;
+          }
+        }
+      }
+    }
+
+    .ahoia-time-place{
+
+      &__time{
+        &__clock{
+          p{
+            font-size:6em;
+          }
+
+          .am-pm{
+            bottom: 38px;
+          }
+        }
+      }
+    }
+
+    // Angle
+    &:after{
+      content:"";
+      position:absolute;
+      width:50%;
+      height:200%;
+      background:$darkGrey;
+      top:0;
+      right:0;
+      transform:rotate(-15deg);
+      transform-origin: top right;
+      z-index: -1;
+    }
+
+    .content{
+      width:76%;
+      margin:0 auto;
+      padding-top:16%;
+      // background:grey;
+
+    }
+  }
+
+  .right-content{
+    .image{
+      height:100vh;
+      width:100%;
+    }
+  }
+}

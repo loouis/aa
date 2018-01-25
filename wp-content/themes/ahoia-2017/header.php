@@ -19,8 +19,6 @@
   	</script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js" async></script>
 
-		</script>
-
 	</head>
 	<body <?php body_class(); ?>>
 
@@ -29,16 +27,7 @@
 		<div id="top" class="website-border"></div>
 		<div id="bottom" class="website-border"></div>
 
-		<!-- <span class="main-header__links-angle-bg">
-		</span> -->
-
 	<header class="main-header">
-
-		<!-- <div class="main-header__close-btn">
-			CLOSE
-
-		</div> -->
-
 		<nav class="main-header__nav">
 			<ul class="main-header__nav__links">
 				<li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>">Home</a></li>
@@ -48,11 +37,13 @@
 			</ul>
 		</nav>
 		<div class="main-header__contact-details">
-			<a href="" class="main-header__contact-details__item main-header__contact-details__item--phone-no">0207 345 789</a>
-			<a href="mailto:hello@ahoia.com?subject=Hello" class="main-header__contact-details__item main-header__contact-details__item--email-add">hello@ahoia.com</a>
-			<p class="main-header__contact-details__item ">123 London Road</p>
-			<p class="main-header__contact-details__item">Shoreditch</p>
-			<p class="main-header__contact-details__item">EC2 5TB</p>
+			<a href="" class="main-header__contact-details__item main-header__contact-details__item--phone-no">
+				<i></i>
+				<p>0207 345 789</p>
+			</a>
+			<a href="mailto:hello@ahoia.com?subject=Hello" class="main-header__contact-details__item main-header__contact-details__item--email-add">
+				<p>hello@ahoia.com</p>
+			</a>
 		</div>
 
 		<span class="main-header__links-angle-bg"></span>
@@ -61,7 +52,7 @@
 			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				 width="110px" height="73.7px" viewBox="0 0 110 73.7" style="enable-background:new 0 0 110 73.7;" xml:space="preserve">
 				<style type="text/css">
-					.st0{fill:#FFFFFF;}
+					.st0{fill:#2d2d2d;}
 				</style>
 				<polygon fill="white" points="41,2 108,33 69.5,71.7 2,41 "/>
 				<g><path class="st0 ahoia-logo__letter ahoia-logo__letter--afirst" d="M22.2,43.5l6.1-13.2c0.1-0.1,0.2-0.2,0.3-0.2h0.2c0.1,0,0.3,0.1,0.3,0.2l6.1,13.2c0.1,0.3,0,0.5-0.3,0.5h-2.2c-0.4,0-0.5-0.1-0.7-0.5l-0.7-1.5h-5.3l-0.7,1.6c-0.1,0.2-0.3,0.5-0.7,0.5h-2.2C22.3,44,22.1,43.7,22.2,43.5z M30.3,39.3L28.8,36h0l-1.5,3.2H30.3z"/></g>

@@ -1,8 +1,8 @@
 		<footer class="footer" role="contentinfo">
-			<p class="copyright">
+			<!-- <p class="copyright">
 				&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
 				<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//html5blank.com" title="HTML5 Blank">HTML5 Blank</a>.
-			</p>
+			</p> -->
 		</footer>
 
 		<script>
@@ -11,13 +11,17 @@
 				var s = d.createElement("script"); s.async = true;
 				var v = !("IntersectionObserver" in w) ? "8.6.0" : "10.4.1";
 				s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
-				w.lazyLoadOptions = {}; // Your options here. See "recipes" for more information about async.
+				w.lazyLoadOptions = {
+					elements_selector: ".lazy",
+					threshold: 200
+				}; // Your options here. See "recipes" for more information about async.
 				b.appendChild(s);
 			}(window, document));
 		</script>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<!-- <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.4.1/lazyload.min.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineLite.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>

@@ -1,9 +1,5 @@
 (function ($, root, undefined) {
 
-
-
-// var myLazyLoad = new LazyLoad();
-
 	$(function () {
 
 		// Wow
@@ -11,6 +7,7 @@
 		    mobile: false,        // trigger animations on mobile devices (default is true)
 		});
 		wow.init();
+
 
 		// Click toggle function
 		$.fn.clickToggle = function(func1, func2) {

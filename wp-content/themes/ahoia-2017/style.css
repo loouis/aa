@@ -141,6 +141,9 @@ p {
 body, html {
   overflow-x: hidden; }
 
+.cover {
+  background-size: cover; }
+
 /*!
  * fullPage 2.7.8
  * https://github.com/alvarotrigo/fullPage.js
@@ -573,6 +576,8 @@ body:not(.home) .ahoia-logo__letter--alast {
   width: 100%;
   height: 20px;
   z-index: 80; }
+  .main-header p, .main-header a {
+    color: white; }
   .main-header--open .main-header__nav {
     opacity: 1;
     visibility: visible; }
@@ -633,6 +638,8 @@ body:not(.home) .ahoia-logo__letter--alast {
       padding-bottom: 20px;
       text-transform: uppercase;
       opacity: 0; }
+      .main-header__nav__links__link a {
+        color: white; }
 
 @media (min-width: 700px) and (min-height: 500px) {
   #top, #bottom, #left, #right {
@@ -922,18 +929,6 @@ body:not(.home) .ahoia-logo__letter--alast {
   max-width: 600px;
   margin: 0 auto; }
 
-.shape-reveal {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  right: -50%; }
-
-.shape-reveal--1 {
-  width: 2600px;
-  height: 2600px;
-  background: #006664;
-  transform: rotate(-95deg) translate(102%, -50%); }
-
 img {
   display: block;
   border: 0;
@@ -1146,60 +1141,53 @@ img:not([src]) {
     position: relative;
     float: left;
     width: 50%;
-    height: 500px;
     overflow: hidden;
-    background-size: cover;
-    background-repeat: no-repeat; }
-    .all-work__item:hover .all-work__item__img {
-      opacity: 1; }
-    .all-work__item__img {
-      position: absolute;
-      background-size: cover;
-      height: 120%;
-      width: 120%;
-      z-index: 0;
-      top: -10%;
-      left: -10%;
-      opacity: 0.6;
-      background-position: 50% 50%;
-      transition: opacity .3s ease-in-out; }
-    .all-work__item:hover .all-work__item__text-con__shape {
+    min-height: 460px;
+    height: 60vh;
+    will-change: contents; }
+    .all-work__item .image-objects__obj {
+      width: 106%;
+      left: -3%;
+      height: 106%;
+      top: -3%; }
+    .all-work__item:hover .all-work__item__text-con__title {
       opacity: 1;
-      visibility: visible; }
+      transform: translateY(0) skewX(0); }
+    .all-work__item:hover .all-work__item__text-con__shape {
+      opacity: 0.9;
+      visibility: visible;
+      transform: skewX(0); }
     .all-work__item__text-con {
       position: relative;
       text-transform: uppercase;
-      text-align: center;
-      z-index: 2;
+      z-index: 5;
       padding: 5%; }
       .all-work__item__text-con__shape {
         opacity: 0;
+        width: 90%;
+        margin: 0 auto;
+        height: auto;
+        transform: skewX(20deg);
         visibility: hidden;
-        transition: opacity .3s ease-in-out; }
+        transition: all .3s ease-in-out; }
         .all-work__item__text-con__shape svg {
           width: 100%;
           height: auto; }
       .all-work__item__text-con__title {
+        opacity: 0;
         position: absolute;
-        z-index: 2;
+        z-index: 5;
         width: 100%;
         top: 50%;
         bottom: 50%;
-        left: 0;
+        left: 15%;
         margin-top: -50px;
         color: white;
-        font-size: 2.8em;
+        font-size: 4em;
         margin-bottom: 0;
-        margin-left: -4px; }
-      .all-work__item__text-con__text {
-        position: absolute;
-        color: white;
-        font-weight: 400;
-        font-size: 18px;
-        top: 54%;
-        left: 0;
-        z-index: 2;
-        width: 100%; }
+        margin-left: -4px;
+        transform: translateY(20px) skewX(6deg);
+        transition: all .25s ease-in-out; }
       .all-work__item__text-con__button {
         width: 60px;
         height: 60px;
@@ -1223,3 +1211,145 @@ img:not([src]) {
 
 .btc svg {
   fill: #456723; }
+
+body.contact {
+  background: #2d2d2d; }
+
+.left-content {
+  position: relative;
+  width: 100%;
+  background: #2d2d2d;
+  color: white;
+  z-index: 1; }
+  .left-content .content {
+    padding: 60px 30px; }
+    .left-content .content:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .left-content .content h3.hey {
+      display: inline-block;
+      position: relative;
+      text-transform: uppercase;
+      font-size: 18px; }
+      .left-content .content h3.hey:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        height: 1px;
+        width: 100%;
+        background: white; }
+    .left-content .content .ahoia-contact {
+      margin-top: 16%; }
+      .left-content .content .ahoia-contact h1 {
+        font-size: 2em;
+        line-height: 1em; }
+      .left-content .content .ahoia-contact__details {
+        width: 100%;
+        margin-top: 16%; }
+        .left-content .content .ahoia-contact__details:after {
+          content: "";
+          display: table;
+          clear: both; }
+        .left-content .content .ahoia-contact__details div {
+          float: left;
+          margin-right: 30px;
+          margin-bottom: 40px; }
+          .left-content .content .ahoia-contact__details div:last-child {
+            margin-right: 0; }
+          .left-content .content .ahoia-contact__details div h3 {
+            font-size: 1.2em;
+            margin-bottom: 20px; }
+          .left-content .content .ahoia-contact__details div a {
+            color: white;
+            font-family: "brandon-grotesque", sans-serif;
+            display: block;
+            padding: 8px 0; }
+  .left-content .ahoia-time-place:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .left-content .ahoia-time-place__location {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #b9b9b9; }
+  .left-content .ahoia-time-place__time__clock {
+    clear: both;
+    position: relative;
+    display: inline-block;
+    padding-top: 30px; }
+    .left-content .ahoia-time-place__time__clock:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .left-content .ahoia-time-place__time__clock p {
+      display: inline-block;
+      font-size: 4em;
+      font-weight: 100;
+      color: white;
+      line-height: 1.1em; }
+    .left-content .ahoia-time-place__time__clock .am-pm {
+      margin-bottom: 10px;
+      position: absolute;
+      right: -32px;
+      bottom: 28px;
+      font-size: 16px; }
+  .left-content .ahoia-time-place__time__open-hrs {
+    display: inline-block;
+    margin-left: 3px;
+    margin-bottom: -4px; }
+    .left-content .ahoia-time-place__time__open-hrs p, .left-content .ahoia-time-place__time__open-hrs i {
+      float: left; }
+    .left-content .ahoia-time-place__time__open-hrs i {
+      width: 24px;
+      height: 24px; }
+      .left-content .ahoia-time-place__time__open-hrs i svg path {
+        fill: white; }
+    .left-content .ahoia-time-place__time__open-hrs p {
+      font-size: 12px;
+      margin-top: 2px;
+      margin-left: 4px;
+      text-transform: uppercase;
+      color: white;
+      font-weight: 100; }
+
+@media (min-width: 700px) and (min-height: 500px) {
+  .contact-page {
+    height: 100vh;
+    overflow: hidden; }
+  .left-content, .right-content {
+    float: left;
+    width: 50%; }
+  .content {
+    height: 100vh; }
+  .left-content .content .ahoia-contact {
+    margin-top: 10%; }
+    .left-content .content .ahoia-contact h1 {
+      font-size: 2.6em;
+      line-height: 1.2em; }
+    .left-content .content .ahoia-contact__details div {
+      width: 45%;
+      margin-right: 4%; }
+  .left-content .ahoia-time-place__time__clock p {
+    font-size: 6em; }
+  .left-content .ahoia-time-place__time__clock .am-pm {
+    bottom: 38px; }
+  .left-content:after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 200%;
+    background: #2d2d2d;
+    top: 0;
+    right: 0;
+    transform: rotate(-15deg);
+    transform-origin: top right;
+    z-index: -1; }
+  .left-content .content {
+    width: 76%;
+    margin: 0 auto;
+    padding-top: 16%; }
+  .right-content .image {
+    height: 100vh;
+    width: 100%; } }

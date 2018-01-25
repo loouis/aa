@@ -16,12 +16,11 @@ get_header();
   }
   .full-hero__shape,
   .work-single-info,
-  .shape-reveal--1,
   .bx-slider__controls .btn-tri__icon:after,
   .bx-slider__controls .btn-tri__icon:before{
     background:<?php the_field('portfolio_intro_bg_color');?>;
   }
-  .ahoia-logo svg polygon{
+  path.ahoia-logo__letter {
     fill:<?php the_field('border_color');?>;
   }
 </style>
