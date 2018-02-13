@@ -60,6 +60,8 @@ p{
 	font-size: em(14px);
 	line-height:$base*5;
 	color:$primFontColor;
+
+
 }
 
 @include screen(medium){
@@ -72,5 +74,11 @@ p{
 	}
 	h3{
 		font-size: 1.8em;
+	}
+
+	p{
+		&.large{
+			font-size: em(18px);
+		}
 	}
 }

@@ -5,7 +5,7 @@ body.contact{
 .left-content{
   position: relative;
   width:100%;
-  background:$darkGrey;
+  background:darken($darkGrey, 5%);
   color:white;
   z-index: 1;
 
@@ -31,7 +31,7 @@ body.contact{
     }
 
     .ahoia-contact{
-      margin-top:16%;
+      margin-top:40px;
 
       h1{
         font-size: 2em;
@@ -41,7 +41,7 @@ body.contact{
       &__details{
         @include clearfix;
         width:100%;
-        margin-top:16%;
+        margin-top:60px;
 
 
         div{
@@ -133,14 +133,11 @@ body.contact{
   }
 }
 
-@include screen(medium){
+@media screen and (min-width:800px) and (min-height:660px){
   .contact-page{
     height:100vh;
     overflow: hidden;
   }
-
-
-
 
   .left-content, .right-content{
     float:left;
@@ -154,6 +151,8 @@ body.contact{
   .left-content{
 
     .content{
+      padding:0;
+
       .ahoia-contact{
         margin-top:10%;
 
@@ -192,7 +191,7 @@ body.contact{
       position:absolute;
       width:50%;
       height:200%;
-      background:$darkGrey;
+      background:darken($darkGrey, 5%);
       top:0;
       right:0;
       transform:rotate(-15deg);

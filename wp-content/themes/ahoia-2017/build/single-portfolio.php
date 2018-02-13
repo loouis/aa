@@ -29,12 +29,17 @@ get_header();
 <?php while ( have_posts() ) : the_post(); ?>
 
   <main role="">
+
+    <a href="javascript:history.go(-1)" class="work-single-back-btn">
+      <span></span>
+    </a>
+
     <section class="work-single-hero full-hero">
 
       <?php if( wp_is_mobile() ){ ?>
         <div class="work-single-hero__img" <?php if ( $thumbnail_id = get_post_thumbnail_id() ) {if ( $image_src = wp_get_attachment_image_src( $thumbnail_id, 'm_full-screen' ) )printf( ' style="background-image: url(%s);"', $image_src[0] );}?>></div>
       <?php }else{ ?>
-        <div class="work-single-hero__img" <?php if ( $thumbnail_id = get_post_thumbnail_id() ) {if ( $image_src = wp_get_attachment_image_src( $thumbnail_id, 'm_full-screen' ) )printf( ' style="background-image: url(%s);"', $image_src[0] );}?>></div>
+        <div class="work-single-hero__img" <?php if ( $thumbnail_id = get_post_thumbnail_id() ) {if ( $image_src = wp_get_attachment_image_src( $thumbnail_id, 'd_large' ) )printf( ' style="background-image: url(%s);"', $image_src[0] );}?>></div>
       <?php } ?>
 
 			<article class="full-hero__desc">
@@ -119,15 +124,19 @@ if( have_rows('flex_port_content') ):
 
   			 	     <div id="bx-slider">
 
-                <?php while ( have_rows('slider_images') ) : the_row();
-
-        					$image = get_sub_field('slider_images_img');?>
+                  <?php while ( have_rows('slider_images') ) : the_row();
+                    $desktop_id = get_sub_field('slider_images_img');
+                    $mobile_id = get_sub_field('slider_images_m_img');
+                  ?>
 
                   <picture>
-        						<source media="(min-width: 1024px)" data-srcset="<?php echo $image;?> 1x, <?php echo $image;?> 2x" />
-        						<source media="(min-width: 500px)" data-srcset="<?php echo $image;?> 1x, <?php echo $image;?> 2x" />
-        						<img class="lazy" alt="Mocassini" data-src="<?php echo $image;?>">
-        					</picture>
+                    <source media="(min-width: 700px)" srcset="<?php echo $desktop_id['sizes']['d_large']?>" />
+                    <?php if( get_sub_field('slider_images_m_img') ){ ?>
+                      <img class="" alt="<?php $mobile_id['alt'];?>" src="<?php echo $mobile_id['sizes']['m_full-screen']?>">
+                    <?php }else{ ?>
+                      <img class="" alt="<?php $desktop_id['alt'];?>" src="<?php echo $desktop_id['sizes']['m_full-screen']?>">
+                    <?php } ?>
+                  </picture>
 
         				<?php endwhile;?>
 
@@ -139,10 +148,18 @@ if( have_rows('flex_port_content') ):
 
         elseif( get_row_layout() == 'images' ): ?>
 
+        <?php
+          $desktop_ID = get_sub_field('flex_port_content_img');
+          $mobile_ID = get_sub_field('flex_port_content_m_img');
+        ?>
+
         <picture>
-          <source media="(min-width: 1024px)" data-srcset="<?php echo the_sub_field('flex_port_content_img');?> 1x, <?php echo the_sub_field('flex_port_content_img');?> 2x" />
-          <source media="(min-width: 500px)" data-srcset="<?php echo the_sub_field('flex_port_content_img');?> 1x, <?php echo the_sub_field('flex_port_content_img');?> 2x" />
-          <img class="lazy" alt="Mocassini" data-src="<?php echo the_sub_field('flex_port_content_img');?>">
+          <source media="(min-width: 700px)" data-srcset="<?php echo $desktop_ID['sizes']['d_large'];?>" />
+          <?php if( get_sub_field('flex_port_content_m_img') ){ ?>
+            <img class="lazy" alt="<?php echo $mobile_ID['alt'] ?>" data-src="<?php echo $mobile_ID['sizes']['m_full-screen'];?>">
+          <?php }else{ ?>
+            <img class="lazy" alt="<?php echo $desktop_ID['alt'] ?>" data-src="<?php echo $desktop_ID['sizes']['m_full-screen'];?>">
+          <?php } ?>
         </picture>
 
     <?php endif ;endwhile; else : endif; ?>

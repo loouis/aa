@@ -5,7 +5,7 @@
 	&__item{
 		position:relative;
 		float:left;
-		width:50%;
+		width:100%;
 		overflow:hidden;
 		min-height:460px;
 		height:60vh;
@@ -23,7 +23,7 @@
 
 		&:hover{
 			.all-work__item__text-con{
-				&__title{
+				&__text{
 					opacity: 1;
 					transform: translateY(0) skewX(0);
 				}
@@ -31,7 +31,7 @@
 				&__shape{
 					opacity:0.9;
 					visibility: visible;
-					transform:skewX(0);
+					transform:translateY(-50%) skewX(0);
 				}
 			}
 		}
@@ -40,17 +40,29 @@
 			position:relative;
 			text-transform:uppercase;
 			z-index: 5;
+			height:100%;
 			padding:5%;
+
+			&__text{
+				position:absolute;
+				z-index: 6;
+				width:100%;
+				top:50%;
+				bottom:50%;
+				left: 15%;
+				margin-top:-50px;
+				transition: all .25s ease-in-out;
+			}
 
 
 			&__shape{
-				opacity:0;
+				position: absolute;
+				top:50%;
 				width:90%;
+				opacity:0.9;
 				margin:0 auto;
 				height:auto;
-				transform:skewX(20deg);
-				visibility: hidden;
-				transition: all .3s ease-in-out;
+				transform:translateY(-50%);
 
 
 				svg{
@@ -61,21 +73,10 @@
 			}
 
 			&__title{
-				opacity:0;
-				position:absolute;
-				z-index: 5;
-				width:100%;
-				top:50%;
-				bottom:50%;
-				left: 15%;
-				margin-top:-50px;
+
 				color:white;
-				font-size: 4em;
 				margin-bottom:0;
 				margin-left:-4px;
-				transform: translateY(20px) skewX(6deg);
-				transition: all .25s ease-in-out;
-
 			}
 
 			&__button{
@@ -88,35 +89,51 @@
 	}
 }
 
-.levis{
-	& svg{
-		fill:$levis;
-		opacity:0.9;
-	}
-}
+// @include screen(mediummiddle){
+// 	.all-work{
+// 		&__item{
+// 			width:50%;
+//
+// 			&__text-con{
+// 				&__shape{
+// 					opacity:0;
+// 					transform:translateY(-50%) skewX(20deg);
+// 					visibility: hidden;
+// 					transition: all .3s ease-in-out;
+// 				}
+// 				&__text{
+// 					opacity:0;
+// 					transform: translateY(20px) skewX(6deg);
+// 				}
+// 				&__title{
+// 					font-size: 4em;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
-.tissot-watches{
-	& svg{
-		fill:lighten($tissot-watches, 10%);
-		opacity:0.9;
-	}
-}
 
-.mct{
-	& svg{
-		fill:$mct;
-		opacity:0.9;
-	}
-}
+@media (min-aspect-ratio: 8/5) {
+	.all-work{
+			&__item{
+				width:50%;
 
-.btc{
-	& svg{
-		fill:$btc;
-	}
-}
-
-.btc{
-	& svg{
-		fill:$btc;
-	}
+				&__text-con{
+					&__shape{
+						opacity:0;
+						transform:translateY(-50%) skewX(20deg);
+						visibility: hidden;
+						transition: all .3s ease-in-out;
+					}
+					&__text{
+						opacity:0;
+						transform: translateY(20px) skewX(6deg);
+					}
+					&__title{
+						font-size: 4em;
+					}
+				}
+			}
+		}
 }

@@ -42,15 +42,43 @@
 
         <div class="section" data-slider="<?php echo $slideCounter;?>">
       		<div class="image-objects">
-          	<?php if( have_rows('p-hero-images') ): while( have_rows('p-hero-images') ): the_row(); $imageCounter++ ?>
-          		<div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?>  parallax lazy" data-src="<?php echo the_sub_field('p-hero-images_image');?>" data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>"></div>
-          	<?php endwhile; endif;?>
+
+              <?php if( wp_is_mobile() ){ ?>
+                <?php $image_ID = get_field('p-mobile-hero-image');?>
+                <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> lazy" style="background-image:url('<?php echo $image_ID['sizes']['m_full-screen'];?>')"></div>
+              <?php }else{ ?>
+                <?php if( have_rows('p-hero-images') ): while( have_rows('p-hero-images') ): the_row(); $imageCounter++ ?>
+                  <?php
+                    $desktop_id = get_sub_field('slider_images_img');
+                    $mobile_id = get_sub_field('slider_images_m_img');
+                  ?>
+                  <?php /*
+                  <picture>
+                    <source media="(min-width: 700px)" srcset="<?php echo $desktop_id['sizes']['d_large']?>" />
+                    <?php if( get_sub_field('slider_images_m_img') ){ ?>
+                      <img class="" alt="<?php $mobile_id['alt'];?>" src="<?php echo $mobile_id['sizes']['m_full-screen']?>">
+                    <?php }else{ ?>
+                      <img class="" alt="<?php $desktop_id['alt'];?>" src="<?php echo $desktop_id['sizes']['m_full-screen']?>">
+                    <?php } ?>
+                  </picture>
+                  */ ?>
+
+                  <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?>  parallax lazy" data-src="<?php echo the_sub_field('p-hero-images_image');?>" data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>"></div>
+                <?php endwhile; endif;?>
+              <?php } ?>
+
       		</div><!-- //image-objects -->
         </div>
 
         <div class="all-work__item__text-con">
 
-          <h1 class="all-work__item__text-con__title"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
+          <div class="all-work__item__text-con__text">
+            <h1 class="all-work__item__text-con__title"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
+            <span class="btn btn-tri">
+              <i class="btn-tri__icon"></i>
+            <span>
+          </div>
+
 
           <div class="all-work__item__text-con__shape">
             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

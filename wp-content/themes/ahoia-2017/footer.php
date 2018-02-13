@@ -5,23 +5,9 @@
 			</p> -->
 		</footer>
 
-		<script>
-			(function(w, d){
-				var b = d.getElementsByTagName('body')[0];
-				var s = d.createElement("script"); s.async = true;
-				var v = !("IntersectionObserver" in w) ? "8.6.0" : "10.4.1";
-				s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
-				w.lazyLoadOptions = {
-					elements_selector: ".lazy",
-					threshold: 200
-				}; // Your options here. See "recipes" for more information about async.
-				b.appendChild(s);
-			}(window, document));
-		</script>
 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.6.0/lazyload.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<!-- <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script> -->
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.4.1/lazyload.min.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineLite.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
@@ -32,6 +18,7 @@
 
 		<?php wp_footer(); ?>
 
+		<!-- // Typekit fonts -->
 		<script>
 		  (function(d) {
 		    var config = {
@@ -43,7 +30,7 @@
 		  })(document);
 		</script>
 
-		<!-- analytics -->
+		<!-- Google Analytics -->
 		<script>
 		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
 		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),

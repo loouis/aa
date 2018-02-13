@@ -16,6 +16,14 @@
 		"oAP": "\/build\/.gitignore",
 		"oF": 0
 		},
+	"\/.vscode\/settings.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/build\/.vscode\/settings-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/404.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -36,6 +44,16 @@
 		"oA": 1,
 		"oAP": "\/build\/assets\/html-templates\/_homepage.html",
 		"oF": 0
+		},
+	"\/assets\/images\/about-page-hero-image.jpg": {
+		"ft": 16384,
+		"iS": 273096,
+		"oA": 0,
+		"oAP": "\/build\/assets\/images\/about-page-hero-image.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
+		"q": 100
 		},
 	"\/assets\/images\/ahoia_logo.svg": {
 		"ft": 2097152,
@@ -186,6 +204,16 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/build\/assets\/js\/libs\/jquery1.10-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/libs\/lazyload.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/build\/assets\/js\/libs\/lazyload-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -422,6 +450,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/assets\/styles\/modules\/_footer.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/build\/assets\/styles\/modules\/_footer.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/assets\/styles\/modules\/_hero.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -483,6 +524,32 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/build\/assets\/styles\/modules\/_work-single.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/styles\/modules\/about-page.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/build\/assets\/styles\/modules\/about-page.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/assets\/styles\/modules\/page-loader.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/build\/assets\/styles\/modules\/page-loader.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -937,6 +1004,13 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/build\/template-demo.php",
+		"oF": 0
+		},
+	"\/templates\/about.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/templates\/about.php",
 		"oF": 0
 		},
 	"\/templates\/contact.php": {

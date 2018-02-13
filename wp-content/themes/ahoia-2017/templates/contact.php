@@ -100,32 +100,29 @@
             <h1>We're here for you.</br>Say Hi.</h1>
 
             <div class="ahoia-contact__details">
-              <div class="">
+              <div>
                 <h3>Become a Client.</h3>
-                <a href="tel:0487 5416 28">(07) 3844 7454</a>
-                <a href="">business@ahoia.com</a>
+                <a href="tel:<?php the_field('ahoia_biz-no', 'option') ?>"><?php the_field('ahoia_biz-no', 'option') ?></a>
+                <a href="mailto:<?php the_field('ahoia_biz-email', 'option');?>"><?php the_field('ahoia_biz-email', 'option') ?></a>
               </div>
 
-              <div class="">
+              <div>
                 <h3>Everything else.</h3>
-                <a href="tel:0487 5416 28">(04) 8754 1628</a>
-                <a href="#">hello@ahoia.com</a>
+                <a href="tel:<?php the_field('ahoia_general-no', 'option') ?>"><?php the_field('ahoia_general-no', 'option') ?></a>
+                <a href="mailto:<?php the_field('ahoia_general-email', 'option') ?>"><?php the_field('ahoia_general-email', 'option') ?></a>
               </div>
-
-
             </div>
           </div>
-
 
         </div><!-- //content -->
 
       </section>
 
       <section class="right-content">
+
         <?php if( wp_is_mobile() ){ ?>
-          <div class="image cover" style="background-image:url('<?php echo $m_heroImage[0];?>')"></div>
         <?php }else{ ?>
-          <div class="image cover" style="background-image:url('<?php echo $d_heroImage[0];?>')"></div>
+          <div class="image cover" style="background-image:url('<?php echo the_field('ahoia_contact-img', 'option');?>')"></div>
         <?php } ?>
       </section>
     </section>

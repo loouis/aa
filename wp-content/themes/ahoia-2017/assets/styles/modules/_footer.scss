@@ -1,0 +1,49 @@
+.main-footer{
+  background:darken($darkGrey, 6%);
+
+  &__logo{
+    svg{
+      float:left;
+      width:120px;
+    }
+    h3{
+      float: left;
+      margin-left: 15px;
+      margin-top: 28px;
+      color:white;
+      font-size: 18px;
+    }
+  }
+
+  &__r-content{
+    float:right;
+    margin-top: 20px;
+    
+    .copyright{
+      text-align:right;
+      margin: 10px 10px 0 0;
+    }
+  }
+
+  &__links{
+
+    &__link{
+      display: inline-block;
+      margin:10px;
+
+      a{
+        color:white;
+        font-family: $brandBodyFont;
+        font-weight:500;
+        color:darken(white, 20%);
+      }
+    }
+  }
+
+  .wrapper{
+    @include clearfix;
+    padding:60px 30px 100px 30px;
+    max-width:1000px;
+    margin:0 auto;
+  }
+}
