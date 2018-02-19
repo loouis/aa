@@ -236,14 +236,17 @@ body.fp-viewing-5{
 
 	&__obj{
 		position: absolute;
-		width:101%;
-		height:101%;
-		background-size: cover !important;
-		background-position:center center;
+		width:100%;
+		height:100%;
 		bottom:0;
 		left:0;
 		top:0;
-		right:0;
+    right:0;
+    
+    img{
+      height:100vh;
+      object-fit: cover;
+    }
 
 
 		&:nth-child(1){
@@ -263,6 +266,16 @@ body.fp-viewing-5{
 }
 
 @include screen(medium){
+
+  .image-objects{
+    &__obj{
+      width:104%;
+      height:104%;
+      bottom:-2%;
+      left:-2%;
+      top:-2%;
+    }
+  }
 
   .section__hello{  
     .home-slider__slide{  

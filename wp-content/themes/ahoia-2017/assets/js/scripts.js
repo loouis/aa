@@ -4,11 +4,15 @@
 
 	$(function () {
 
+
+    // Object fit images
+    objectFitImages();
+
 		// Wow
-		wow = new WOW({
-		    mobile: false,        // trigger animations on mobile devices (default is true)
-		});
-		wow.init();
+		// wow = new WOW({
+		//     mobile: false,        // trigger animations on mobile devices (default is true)
+		// });
+		// wow.init();
 
 
 		//Lazyload
@@ -130,7 +134,7 @@
             caption: false,
             adaptiveHeight: false,
             pager: false,
-            controls: true,
+            controls: false,
 						touchEnabled: false,
 
         });
@@ -150,14 +154,28 @@
     });
 
 
+    var $SlideDown = 0;
+    var $SlideUp = 0;
 		// Controls for fullpage.js
 		$(document).on('click', '#home_slideDown', function(e){
-			e.preventDefault();
-		  $.fn.fullpage.moveSectionDown();
+      e.preventDefault();
+      if( $SlideDown == 0 ){
+        $.fn.fullpage.moveSectionDown();
+      }
+      $SlideDown = 1;
+      setTimeout(function(){
+        $SlideDown = 0;
+      }, 1000);
 		});
 		$(document).on('click', '#home_slideUp', function(e){
-			e.preventDefault();
-			$.fn.fullpage.moveSectionUp();
+      e.preventDefault();
+      if( $SlideUp == 0 ){
+        $.fn.fullpage.moveSectionUp();
+      }
+      $SlideUp = 1;
+      setTimeout(function(){
+        $SlideUp = 0;
+      }, 1000);
 		});
 
 
@@ -187,7 +205,7 @@
 		if(winWidth >= 900){
 
 			win.scroll(function(e){
-				parallaxHero();
+				// parallaxHero();
 			});
 
 		}else{}

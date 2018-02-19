@@ -1,5 +1,7 @@
 .main-footer{
+  position: relative;
   background:darken($darkGrey, 6%);
+  z-index: 1;
 
   &__logo{
     svg{
@@ -16,11 +18,10 @@
   }
 
   &__r-content{
-    float:right;
+    float:left;
     margin-top: 20px;
     
     .copyright{
-      text-align:right;
       margin: 10px 10px 0 0;
     }
   }
@@ -30,6 +31,10 @@
     &__link{
       display: inline-block;
       margin:10px;
+
+      &:first-child{
+        margin-left:0;
+      }
 
       a{
         color:white;
@@ -45,5 +50,17 @@
     padding:60px 30px 100px 30px;
     max-width:1000px;
     margin:0 auto;
+  }
+}
+
+@include screen(medium){
+  .main-footer{
+    &__r-content{
+      float:right;
+
+      .copyright{
+        text-align:right;
+      }
+    }
   }
 }

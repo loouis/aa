@@ -70,8 +70,8 @@
       <div class="section section__hello" data-slider="0">
         
         <div class="home-slider__slide">
-          <h1 class="slider-info__text-con__title">G’DAY.</h1>
-          <h3>We Amplify Brands</h3>
+          <h1 class="slider-info__text-con__title wow fadeInUp">G’DAY.</h1>
+          <h3 class="wow fadeInUp" data-wow-delay=".3s">We Amplify Brands</h3>
         </div>
         <p class="section__hello__explore">Explore</p>
 
@@ -89,7 +89,24 @@
               	<div class="home-slider__slide">
               		<div class="image-objects">
                   	<?php if( have_rows('p-hero-images') ): while( have_rows('p-hero-images') ): the_row(); $imageCounter++ ?>
-                  		<div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> parallax" style="background-image: url('<?php echo the_sub_field('p-hero-images_image');?>');?>" data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>"></div>
+                      <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> parallax"  data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>">
+                        <?php  
+                          $d_image = get_sub_field('p-hero-images_image');
+                          $m_image = get_field('p-mobile-hero-image');
+                        ?>
+                        <?php if( wp_is_mobile() ){ ?>
+                          <img src="<?php echo $m_image['url']; ?>" alt="<?php echo $m_image['alt']; ?>">  
+                        <?php }else{ ?>
+                          <picture>
+                            <source media="(min-width: 700px)" srcset="<?php echo $d_image['sizes']['d_large']?>" />
+                            <?php if( $m_image ){ ?>
+                              <img alt="<?php $m_image['alt'];?>" src="<?php echo $m_image?>">
+                            <?php }else{ ?>
+                              <img class="" alt="<?php $d_image['alt'];?>" src="<?php echo $d_image['sizes']['d_large']?>">
+                            <?php } ?>
+                          </picture>
+                        <?php } ?>
+                      </div>
                   	<?php endwhile; endif;?>
               		</div><!-- //image-objects -->
               	</div>

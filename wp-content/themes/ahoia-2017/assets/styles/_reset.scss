@@ -61,6 +61,11 @@ i, span{
 	display: block;
 }
 
+img.of-cover{
+  height:100%;
+  object-fit:cover;
+}
+
 *{
 	box-sizing: border-box;
 }

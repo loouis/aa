@@ -1,21 +1,3 @@
-// Ahoia logo animation
-body:not(.home) .ahoia-logo{
-	&__letter{
-		// display:none;
-
-		&--hide{
-			visibility: hidden;
-			transform: translate(0,3px);
-		}
-		&--afirst{
-			transform: translate(20px,0);
-		}
-		&--alast{
-			transform: translate(-21px,0);
-		}
-	}
-}
-
 .main-header{
 	position:fixed;
 	top:0;
@@ -130,6 +112,25 @@ body:not(.home) .ahoia-logo{
 }
 
 @include screen(medium){
+
+  // Ahoia logo animation
+  body:not(.home) .ahoia-logo{
+    &__letter{
+      // display:none;
+
+      &--hide{
+        visibility: hidden;
+        transform: translate(0,3px);
+      }
+      &--afirst{
+        transform: translate(20px,0);
+      }
+      &--alast{
+        transform: translate(-21px,0);
+      }
+    }
+  }
+
 	#top, #bottom, #left, #right {
 		background: #2d2d2d;
 		position: fixed;

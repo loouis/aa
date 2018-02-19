@@ -9,36 +9,73 @@
   animation-fill-mode: both;
 }
 
-.animated.hinge {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
+@keyframes fadeScaleIn{
+  0%{
+    opacity:0;
+    transform: scale(0.5);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.fadeScaleIn{
+  -webkit-animation-name:fadeScaleIn;
+  animation-name:fadeScaleIn;
 }
 
-@keyframes scale {
+@keyframes slideInUp {
   0% {
-    -webkit-transform: scale(0.2);
-    -ms-transform: scale(0.2);
-    transform: scale(0.2);
-    opacity:0;
-  }
-
-  50% {
-    -webkit-transform: scale(0.6);
-    -ms-transform: scale(0.6);
-    transform: scale(0.6);
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    transform: translateY(50px);
   }
 
   100% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+}
+
+@keyframes imgScaleIn{
+  0%{
+    opacity:0;
+    transform:scale(1.2);
+  }
+  100%{
     opacity:1;
+    transform:rotate(1);
+  }
+}
+.imgScaleIn{
+  -webkit-animation-name: imgScaleIn;
+  animation-name: imgScaleIn;
+}
+
+@keyframes singlePrjAngleShape{
+  0%{
+    transform:rotate(0);
+  }
+  100%{
+    transform:rotate(21deg);
   }
 }
 
-.scale {
-  -webkit-animation-name: scale;
-  animation-name: scale;
+.single-prj-angle-shape{
+  -webkit-animation-name: singlePrjAngleShape;
+  animation-name: singlePrjAngleShape;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
 }
 
 
@@ -162,26 +199,7 @@
   animation-name: slideInDown;
 }
 
-@keyframes slideInUp {
-  0% {
-    opacity: 1;
-    -webkit-transform: translateY(280px);
-    -ms-transform: translateY(280px);
-    transform: translateY(280px);
-  }
 
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-.slideInUp {
-  -webkit-animation-name: slideInUp;
-  animation-name: slideInUp;
-}
 
 
 @keyframes slideInUpReveal {

@@ -1,7 +1,8 @@
 .full-hero{
 	position:relative;
-	width:100%;
-	height:90vh;
+  width:100%;
+  min-height:600px;
+	height:100vh;
 	background-size:cover;
 	// background-image: url("images/work-image.jpg");
 	overflow:hidden;
@@ -35,8 +36,8 @@
 	}
 
 	&__desc{
-		position:absolute;
-		bottom:0;
+    position:absolute;
+    bottom:30px;
 		z-index:6;
 		padding-left:26px;
 
@@ -49,17 +50,18 @@
 		&__text{
 
 		}
-	}
+  }
+  
 
 	&__shape{
-		position: absolute;
-		width: 113%;
-		height: 950px;
-		bottom: -950px;
-		right: 0px;
+    position: absolute;
+    width: 223%;
+    height: 950px;
+    bottom: -800px;
+    right: -80px;
 		background: darken(#00CCC8, 20%);
-		opacity:0.98;
-		transform: rotate(21deg);
+    opacity:0.98;
+    transform: rotate(21deg);
 		transform-origin: top right;
 		z-index: 2;
 	}
@@ -86,10 +88,10 @@
 
 .work-single-hero{
 	&__img{
-		position: relative;
+		position: fixed;
 		height:100%;
 		width:100%;
-		background-size:cover;
+    background-size:cover;
 	}
 }
 
@@ -108,9 +110,17 @@
 		.btn-tri{
 			top:-20px;
 			left:70px;
-		}
+    }
+    
+    &__shape{
+      width: 113%;
+      height: 950px;
+      bottom: -950px;
+      right: 0px;
+    }
 
 		&__desc{
+      bottom:0;
 			padding:60px;
 		}
 	}

@@ -168,6 +168,16 @@
 		"opt": 1,
 		"q": 100
 		},
+	"\/assets\/js\/libs\/_object-fit-images.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/build\/assets\/js\/libs\/_object-fit-images-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/assets\/js\/libs\/bxslider.min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -405,7 +415,7 @@
 		"dS": 0,
 		"ft": 4,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/build\/assets\/styles\/libs\/wow.css",
 		"oF": 0,
 		"oS": 0,
@@ -560,11 +570,11 @@
 		"dP": 10,
 		"dS": 0,
 		"ft": 4,
-		"ma": 0,
+		"ma": 1,
 		"oA": 0,
 		"oAP": "\/style.css",
 		"oF": 2,
-		"oS": 0,
+		"oS": 3,
 		"uL": 1
 		},
 	"\/author.php": {
@@ -992,6 +1002,13 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/style.css.map": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/style.css.map",
+		"oF": 0
+		},
 	"\/tag.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1067,6 +1084,12 @@
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/libs\/mousewheel.js",
 			"position": 4,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/assets\/js\/libs\/_object-fit-images.js",
+			"position": 5,
 			"type": 0
 			}
 		]

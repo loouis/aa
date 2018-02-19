@@ -41,32 +41,27 @@
 
 
         <div class="section" data-slider="<?php echo $slideCounter;?>">
-      		<div class="image-objects">
-
-              <?php if( wp_is_mobile() ){ ?>
-                <?php $image_ID = get_field('p-mobile-hero-image');?>
-                <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> lazy" style="background-image:url('<?php echo $image_ID['sizes']['m_full-screen'];?>')"></div>
-              <?php }else{ ?>
-                <?php if( have_rows('p-hero-images') ): while( have_rows('p-hero-images') ): the_row(); $imageCounter++ ?>
-                  <?php
-                    $desktop_id = get_sub_field('slider_images_img');
-                    $mobile_id = get_sub_field('slider_images_m_img');
-                  ?>
-                  <?php /*
+      		<div class="image-objects"> 
+            <?php if( wp_is_mobile() ){ ?>  
+              <?php  
+                $m_image = get_field('p-mobile-hero-image');  
+              ?>
+              <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> parallax"  data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>">
+                <img src="<?php echo $m_image['url']; ?>" alt="<?php echo $m_image['alt']; ?>">  
+              </div>
+            <?php }else{ ?>
+              <?php if( have_rows('p-hero-images') ): while( have_rows('p-hero-images') ): the_row(); $imageCounter++ ?>
+                <?php  
+                  $d_image = get_sub_field('p-hero-images_image');
+                ?>
+                <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> parallax"  data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>">
                   <picture>
-                    <source media="(min-width: 700px)" srcset="<?php echo $desktop_id['sizes']['d_large']?>" />
-                    <?php if( get_sub_field('slider_images_m_img') ){ ?>
-                      <img class="" alt="<?php $mobile_id['alt'];?>" src="<?php echo $mobile_id['sizes']['m_full-screen']?>">
-                    <?php }else{ ?>
-                      <img class="" alt="<?php $desktop_id['alt'];?>" src="<?php echo $desktop_id['sizes']['m_full-screen']?>">
-                    <?php } ?>
+                    <source media="(min-width: 700px)" srcset="<?php echo $d_image['sizes']['d_large']?>" />
+                    <img class="" alt="<?php $d_image['alt'];?>" src="<?php echo $d_image['sizes']['d_large']?>">
                   </picture>
-                  */ ?>
-
-                  <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?>  parallax lazy" data-src="<?php echo the_sub_field('p-hero-images_image');?>" data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>"></div>
-                <?php endwhile; endif;?>
-              <?php } ?>
-
+                </div>
+              <?php endwhile; endif;?>
+            <?php } ?>
       		</div><!-- //image-objects -->
         </div>
 

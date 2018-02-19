@@ -8,6 +8,9 @@ get_header();
 ?>
 
 <style type="text/css">
+  .page-loader__logo-shape{
+    fill:<?php the_field('border_color');?> !important;
+  }
   body, html{
 		background-color:<?php the_field('border_color');?>;
 	}
@@ -37,32 +40,33 @@ get_header();
     <section class="work-single-hero full-hero">
 
       <?php if( wp_is_mobile() ){ ?>
-        <div class="work-single-hero__img" <?php if ( $thumbnail_id = get_post_thumbnail_id() ) {if ( $image_src = wp_get_attachment_image_src( $thumbnail_id, 'm_full-screen' ) )printf( ' style="background-image: url(%s);"', $image_src[0] );}?>></div>
+        <div class="work-single-hero__img wow imgScaleIn">
+          <img src="<?php echo get_field('p-mobile-hero-image')['url'];?>" alt="<?php get_field('p-mobile-hero-image')['alt']?>" class="of-cover">
+        </div>
       <?php }else{ ?>
-        <div class="work-single-hero__img" <?php if ( $thumbnail_id = get_post_thumbnail_id() ) {if ( $image_src = wp_get_attachment_image_src( $thumbnail_id, 'd_large' ) )printf( ' style="background-image: url(%s);"', $image_src[0] );}?>></div>
+        <?php
+          $post_url = get_post_thumbnail_id();
+          $d_image = wp_get_attachment_image_src($post_url, 'd_large'); 
+        ?>
+        <div class="work-single-hero__img wow imgScaleIn">
+          <img src="<?php echo $d_image[0]; ?>" class="of-cover" alt="">
+        </div>
       <?php } ?>
-
 			<article class="full-hero__desc">
-				<h1 class="full-hero__desc__title largest"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
-        <a href="#" id="scroll-down" class="btn btn-tri">
+				<h1 class="full-hero__desc__title largest wow slideInUp" data-wow-delay=".2s"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
+        <a href="#" id="scroll-down" class="btn btn-tri wow fadeScaleIn" data-wow-delay="1.2s" data-wow-duration=".5s">
           <i class="btn-tri__icon"></i>
         </a>
 			</article>
-
-			<span class="full-hero__shape"></span>
+			<span class="full-hero__shape wow single-prj-angle-shape"></span>
 		</section>
-
 		<section class="work-single-info">
-
 			<div class="work-single-info__wrapper">
-
 				<h3 class="work-single-info__intro"><?php the_field('port-text_opening-para');?></h3>
-
         <a href="#0" class="work-single-info__read-more">
           <i></i>
           <p>Read more</p>
         </a>
-
 				<div class="work-single-info__wrapper__text-con">
           <article class="work-single-info__large-desc">
 						<p class="work-single-info__large-desc__text"><?php the_field('port-text_the-project');?></p>
@@ -76,9 +80,7 @@ get_header();
   					</article>
           <?php endif; ?>
 				</div><!-- //work-single-info__wrapper__text-con -->
-
 			</div>
-
       <div class="work-single-info__details">
         <ul>
           <?php while( have_rows('port-b-info_repeater') ): the_row(); ?>
@@ -154,11 +156,11 @@ if( have_rows('flex_port_content') ):
         ?>
 
         <picture>
-          <source media="(min-width: 700px)" data-srcset="<?php echo $desktop_ID['sizes']['d_large'];?>" />
+          <source media="(min-width: 700px)" data-srcset="<?php echo $desktop_ID['url'];?>" />
           <?php if( get_sub_field('flex_port_content_m_img') ){ ?>
-            <img class="lazy" alt="<?php echo $mobile_ID['alt'] ?>" data-src="<?php echo $mobile_ID['sizes']['m_full-screen'];?>">
+            <img class="lazy" alt="<?php echo $mobile_ID['alt'] ?>" src="<?php echo $mobile_ID['url']?>">
           <?php }else{ ?>
-            <img class="lazy" alt="<?php echo $desktop_ID['alt'] ?>" data-src="<?php echo $desktop_ID['sizes']['m_full-screen'];?>">
+            <img class="lazy" alt="<?php echo $desktop_ID['alt'] ?>" src="<?php echo $desktop_ID['sizes']['m_full-screen'];?>">
           <?php } ?>
         </picture>
 
