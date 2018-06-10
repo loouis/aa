@@ -50,9 +50,6 @@
                     <a href="<?php echo the_permalink();?>" class="container">
                       <h1 class="slider-info__text-con__title"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
                       <p class="slider-info__text-con__text"><?php the_excerpt();?></p>
-                      <span class="btn btn-tri">
-                        <i class="btn-tri__icon"></i>
-                      <span>
                     </a>
           				</section>
               <?php $slideCounter++; endforeach; ?>
@@ -68,13 +65,13 @@
       </div><!--  //full-page-slider__slider-info -->
       
       <div class="section section__hello" data-slider="0">
-        
+        <span class="section__hello__color-overlay"></span>
+        <span class="section__hello__image cover" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/images/homepage-hero.jpg)"></span>
         <div class="home-slider__slide">
           <h1 class="slider-info__text-con__title wow fadeInUp">G’DAY.</h1>
-          <h3 class="wow fadeInUp" data-wow-delay=".3s">We Amplify Brands</h3>
+          <h3 class="wow fadeInUp" data-wow-delay=".3s">Amplifying Brands since 2012</h3>
         </div>
-        <p class="section__hello__explore">Explore</p>
-
+        <p class="section__hello__explore">Explore Ahoia</p>
       </div>
 
       <?php
@@ -88,15 +85,17 @@
               <div class="section" data-slider="<?php echo $slideCounter;?>" >
               	<div class="home-slider__slide">
               		<div class="image-objects">
-                  	<?php if( have_rows('p-hero-images') ): while( have_rows('p-hero-images') ): the_row(); $imageCounter++ ?>
-                      <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> parallax"  data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>">
-                        <?php  
-                          $d_image = get_sub_field('p-hero-images_image');
-                          $m_image = get_field('p-mobile-hero-image');
-                        ?>
-                        <?php if( wp_is_mobile() ){ ?>
-                          <img src="<?php echo $m_image['url']; ?>" alt="<?php echo $m_image['alt']; ?>">  
-                        <?php }else{ ?>
+                    <?php if( wp_is_mobile() ){ ?>  
+                      <?php  
+                        $m_image = get_field('p-mobile-hero-image');  
+                      ?>
+                      <img src="<?php echo $m_image['sizes']['m_full-screen']; ?>" alt="<?php echo $m_image['alt']; ?>">  
+                    <?php }else{ ?>
+                      <?php if( have_rows('p-hero-images') ): while( have_rows('p-hero-images') ): the_row(); $imageCounter++ ?>
+                        <div class="image-objects__obj image-objects__obj--<?php echo $imageCounter;?> parallax"  data-speed-y="<?php echo the_sub_field('p-hero-yspeed');?>" data-speed-x="<?php echo the_sub_field('p-hero-xspeed');?>">
+                          <?php  
+                            $d_image = get_sub_field('p-hero-images_image');
+                          ?>
                           <picture>
                             <source media="(min-width: 700px)" srcset="<?php echo $d_image['sizes']['d_large']?>" />
                             <?php if( $m_image ){ ?>
@@ -105,11 +104,12 @@
                               <img class="" alt="<?php $d_image['alt'];?>" src="<?php echo $d_image['sizes']['d_large']?>">
                             <?php } ?>
                           </picture>
-                        <?php } ?>
-                      </div>
-                  	<?php endwhile; endif;?>
-              		</div><!-- //image-objects -->
-              	</div>
+                        </div>
+                      <?php endwhile; endif;?>
+                    <?php } ?>
+                  </div><!-- //image-objects -->
+                  <div class="home-slider__slide__category"><span></span><p>Work.</p></div>
+                </div>
               </div>
           <?php $slideCounter++; endforeach; ?>
           <?php wp_reset_postdata();?>
@@ -188,8 +188,8 @@
           shapeId.addClass("slider-info__text-con__item--active");
 
         hometl
-          .to($('.slider-info__text-con__item--active .container'), 0.1, {autoAlpha:1, y:0, ease:Circ.easeInOut, })
-          .fromTo(shape, 0.6, {transformOrigin:'50% 50%', backfaceVisibility:'hidden',}, { transformOrigin:'50% 50%', backfaceVisibility:'hidden', ease:Circ.easeInOut});
+          .to($('.slider-info__text-con__item--active .container'), 0.3, {autoAlpha:1, y:0, ease: Power4.easeOut, })
+          .fromTo(shape, 0.6, {transformOrigin:'50% 50%', backfaceVisibility:'hidden',}, { transformOrigin:'50% 50%', backfaceVisibility:'hidden', ease:Circ.easeInOut}, '-=0.5');
 
         hometl.play();
       },
@@ -199,7 +199,7 @@
           sliderInfoCon = $('.slider-info__text-con').find('.slider-info__text-con__item--active');
 
         homeHidetl
-          .to($('.slider-info__text-con__item--active .container'), 0.3, {autoAlpha:0, y:20, ease:Circ.easeInOut})
+          .to($('.slider-info__text-con__item--active .container'), 0.3, {autoAlpha:0, y:50, ease: Power4.easeOut})
           .fromTo(shape, 0.6, {rotationX:0, transformOrigin:'50% 50%', backfaceVisibility:'hidden', transformStyle:'preserve-3d', rotationX:0, ease:Circ.easeInOut}, {rotationX:360, transformStyle:'preserve-3d',backfaceVisibility:'hidden', transformOrigin:'50% 50%', ease:Circ.easeInOut}, '-=0.2');
 
         homeHidetl.play();

@@ -59,7 +59,7 @@
     <header class="main-header">
       <nav class="main-header__nav">
         <ul class="main-header__nav__links">
-          <li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>">Home</a></li>
+          <li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>">G’day</a></li>
           <li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>/projects">Projects</a></li>
           <li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>/about">About</a></li>
           <li class="main-header__nav__links__link"><a href="<?php echo site_url(); ?>/contact">Contact</a></li>
