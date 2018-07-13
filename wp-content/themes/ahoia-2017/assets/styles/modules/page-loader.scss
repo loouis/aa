@@ -19,7 +19,7 @@
   top:0;
   left:0;
   color:#282828;
-  background:#2d2d2d;
+  background:white;
   z-index: 99999;
 }
 .page-loader__logo-letters{
@@ -43,7 +43,8 @@
   animation-delay: .60s;
 }
 .page-loader__logo-shape{
-  fill:currentColor;
+  // fill:currentColor;
+  fill:rgb(222,61,134);;
 }
 .page-loader .wrapper{
   width:600px;

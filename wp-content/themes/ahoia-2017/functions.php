@@ -30,7 +30,7 @@ if (function_exists('add_theme_support'))
     add_image_size('d_large', 1920, 1068, true);
     add_image_size('d_half-large', 1200, 668, true);
 
-    add_image_size('m_full-screen', 900, 1620, false); //height ration will be 1620
+    add_image_size('m_full-screen', 900, 1620, false); //height ratio will be 1620
     add_image_size('m_half-screen', 900, 801, true);
     add_image_size('m_square', 900, 1000, true);
 

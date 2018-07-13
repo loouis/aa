@@ -8,7 +8,11 @@
 
 	p, a{
 		color:white;
-	}
+  }
+  
+  &__nav{
+    overflow:scroll;
+  }
 
 	&--open{
 		.main-header{
@@ -19,7 +23,13 @@
 
 				&__links{
 					&__link{
-						opacity: 1;
+            opacity: 1;
+
+
+            
+            p{
+              display:none;
+            }
 
 					}
 				}
@@ -111,7 +121,7 @@
 	}
 }
 
-@include screen(medium){
+@mixin main-header--md(){
 
   // Ahoia logo animation
   body:not(.home) .ahoia-logo{
@@ -161,16 +171,64 @@
 		}
 
 		&__nav{
+      padding-top:74px;
 			background:none;
-			position:relative;
-			width:30%;
+      position:relative;
+      
+			
 
 			&__links{
+        width:30%;
+
+        &__link{
+          display:block;
+        }
+        
+        &:hover{
+          .main-header__nav__links__link{
+            h4{
+              opacity:0.3;
+            }
+           
+          }
+        }
+
+        
 
 				&__link{
-					text-align: left;
-				}
+          text-align: left;
+          padding-bottom:15px;
+          cursor:pointer;
+          
+          h4{
+            font-size:1em;
+            transition: all .25s ease-in-out;
+          }
+          p{
+            opacity:0;
+            position: absolute;
+            bottom:3px;
+            left:0;
+            font-weight:400;
+            font-size:16px;
+            text-transform: none;
 
+            transition: opacity .25s ease-in-out;
+            // display:none;
+          }
+
+          &:hover{
+            // opacity:1;
+
+            p{
+              opacity:1;
+            }
+            h4{
+              margin-bottom:10px;
+              opacity:1 !important;
+            }
+          }
+				}
 			}
 		}
 

@@ -7,14 +7,12 @@
 
   if( $posts ): ?>
     <style type="text/css">
-
       <?php foreach( $posts as $post):?>
       <?php setup_postdata($post); ?>
         <?php echo $mainClass;?>-<?php echo $styleCounter;?> .main-header a,
-        <?php echo $mainClass;?>-<?php echo $styleCounter;?> .main-header p{
+        <?php echo $mainClass;?>-<?php echo $styleCounter;?> .main-header h4{
       		color:<?php the_field('border_color');?>;
       	}
-        <?php echo $mainClass;?>-<?php echo $styleCounter;?> .slider-info__shape__con svg,
         <?php echo $mainClass;?>-<?php echo $styleCounter;?> .ahoia-logo__letter{
   				fill:<?php the_field('border_color');?>;
       	}
@@ -27,49 +25,26 @@
   <section>
     <div id="fullpage" class="full-page-slider">
 
-      <div class="full-page-slider__controls">
+      <nav class="full-page-slider__controls">
         <a href="#0" id="home_slideUp" class="btn btn-tri bx-slider__controls__arrows bx-slider__controls__arrows--prev">
           <i class="btn-tri__icon"></i>
         </a>
         <a href="#0" id="home_slideDown" class="btn btn-tri bx-slider__controls__arrows bx-slider__controls__arrows--next">
           <i class="btn-tri__icon"></i>
         </a>
-      </div>
-
-      <div id="slider-info" class="full-page-slider__slider-info slider-info">
-  			<div class="slider-info__text-con" id="slider-info__text-con">
-                  
-          <?php
-            $posts = get_field('homepage_gallery');
-            $slideCounter = 1;
-
-            if( $posts ): ?>
-              <?php foreach( $posts as $post):?>
-                  <?php setup_postdata($post); ?>
-                  <section id="item-<?php echo $slideCounter;?>" class="slider-info__text-con__item">
-                    <a href="<?php echo the_permalink();?>" class="container">
-                      <h1 class="slider-info__text-con__title"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
-                      <p class="slider-info__text-con__text"><?php the_excerpt();?></p>
-                    </a>
-          				</section>
-              <?php $slideCounter++; endforeach; ?>
-              <?php wp_reset_postdata(); ?>
-            <?php endif; ?>
-
-  				<div class="slider-info__shape">
-  					<div class="slider-info__shape__con">
-  						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="110px" height="73.7px" viewBox="0 0 110 73.7" style="enable-background:new 0 0 110 73.7;" xml:space="preserve"><polygon points="41,2 108,33 69.5,71.7 2,41 "/></svg>
-  					</div>
-  				</div>
-  			</div>
-      </div><!--  //full-page-slider__slider-info -->
+      </nav>
       
       <div class="section section__hello" data-slider="0">
-        <span class="section__hello__color-overlay"></span>
-        <span class="section__hello__image cover" style="background-image: url(<?php echo get_template_directory_uri();?>/assets/images/homepage-hero.jpg)"></span>
         <div class="home-slider__slide">
-          <h1 class="slider-info__text-con__title wow fadeInUp">G’DAY.</h1>
-          <h3 class="wow fadeInUp" data-wow-delay=".3s">Amplifying Brands since 2012</h3>
+          <span class="section__hello__color-overlay"></span>
+          <span class="section__hello__image cover"></span>
+
+          <div class="home-slider__slide__text-con">
+            <span class="">
+              <h1 class="home-slider__slide__text-con__title">G’DAY.</h1>
+              <h3 >Amplifying <br />Brands  <br />since 2012</h3>
+            </span>
+          </div>
         </div>
         <p class="section__hello__explore">Explore Ahoia</p>
       </div>
@@ -82,8 +57,20 @@
         if( $posts ): ?>
           <?php foreach( $posts as $post):?>
               <?php setup_postdata($post); ?>
-              <div class="section" data-slider="<?php echo $slideCounter;?>" >
-              	<div class="home-slider__slide">
+              <div class="section" data-slider="<?php echo $slideCounter;?>" style="background-color:<?php the_field('border_color');?>">
+              	<a href="<?php echo the_permalink();?>" class="home-slider__slide">
+                  <div class="home-slider__slide__text">
+                    <span>
+                      <h1 class="home-slider__slide__text__title"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
+                      <?php if( get_the_excerpt() ):?>
+                        <p class="home-slider__slide__text__excerpt"><?php the_excerpt();?></p>
+                      <?php endif;?>
+                    </span>
+
+                    <div class="home-slider__slide__text__shape">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="110px" height="73.7px" viewBox="0 0 110 73.7" style="enable-background:new 0 0 110 73.7;" xml:space="preserve"><polygon fill="<?php the_field('border_color');?>" points="41,2 108,33 69.5,71.7 2,41 "/></svg>
+                    </div>
+                  </div><!-- // home-slider__slide__text -->
               		<div class="image-objects">
                     <?php if( wp_is_mobile() ){ ?>  
                       <?php  
@@ -109,8 +96,8 @@
                     <?php } ?>
                   </div><!-- //image-objects -->
                   <div class="home-slider__slide__category"><span></span><p>Work.</p></div>
-                </div>
-              </div>
+                </a><!-- // home-slider__slide -->
+              </div><!-- // Section -->
           <?php $slideCounter++; endforeach; ?>
           <?php wp_reset_postdata();?>
         <?php endif; ?>
@@ -136,7 +123,7 @@
           <div class="main-footer__r-content">
             <ul class="main-footer__links">
               <li class="main-footer__links__link">
-                <a href="<?php echo site_url();?>">Home</a>
+                <a href="<?php echo site_url();?>">G’day</a>
               </li>
               <li class="main-footer__links__link">
                 <a href="<?php echo site_url();?>/about">About</a>
@@ -151,7 +138,6 @@
             <p class="copyright">©Ahoia 2018</p>
           </div>
 
-          
         </div>
       </footer>
 
@@ -163,50 +149,8 @@
 
 <script type="text/javascript">
   (function($){
-
-    //-------  Homepage triangle animation
-		var sliderTextContainer = $('.slider-info__text-con'),
-				sectionActive = $(".section.active"),
-				sectionActiveAttr = sectionActive.data('slider'),
-				shapeActive = $('.slider-info__text-con__item--active'),
-				shapeActiveTitle = shapeActive.find(".slider-info__text-con__title"),
-				shape = $('.slider-info__shape'),
-				hometl = new TimelineLite({paused:true}),
-				homeHidetl = new TimelineLite({paused:true});
-
-
     $('#fullpage').fullpage({
-      fixedElements: '#slider-info, .full-page-slider__controls',
-
-      afterLoad: function(anchorLink, index){
-
-        var enteringSection = $(this),
-          sliderInfoCon = $('.slider-info__text-con'),
-          sectionAttr = enteringSection.data('slider'),
-          sectionShape = $('body.fp-viewing-'+sectionAttr);
-          shapeId = $('#item-'+sectionAttr);
-          shapeId.addClass("slider-info__text-con__item--active");
-
-        hometl
-          .to($('.slider-info__text-con__item--active .container'), 0.3, {autoAlpha:1, y:0, ease: Power4.easeOut, })
-          .fromTo(shape, 0.6, {transformOrigin:'50% 50%', backfaceVisibility:'hidden',}, { transformOrigin:'50% 50%', backfaceVisibility:'hidden', ease:Circ.easeInOut}, '-=0.5');
-
-        hometl.play();
-      },
-
-      onLeave: function(index, nextIndex, direction){
-        var leavingSection = $(this),
-          sliderInfoCon = $('.slider-info__text-con').find('.slider-info__text-con__item--active');
-
-        homeHidetl
-          .to($('.slider-info__text-con__item--active .container'), 0.3, {autoAlpha:0, y:50, ease: Power4.easeOut})
-          .fromTo(shape, 0.6, {rotationX:0, transformOrigin:'50% 50%', backfaceVisibility:'hidden', transformStyle:'preserve-3d', rotationX:0, ease:Circ.easeInOut}, {rotationX:360, transformStyle:'preserve-3d',backfaceVisibility:'hidden', transformOrigin:'50% 50%', ease:Circ.easeInOut}, '-=0.2');
-
-        homeHidetl.play();
-
-        sliderInfoCon.removeClass("slider-info__text-con__item--active");
-      }
+      fixedElements: '.full-page-slider__controls',
     });
-
   })(jQuery);
 </script>

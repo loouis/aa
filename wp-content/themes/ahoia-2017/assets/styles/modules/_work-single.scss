@@ -215,7 +215,7 @@ img:not([src]) {
 
 		&__text{
 			color:white;
-			font-size:1.2em;
+      font-size:1.2em;
 
 			strong{
 				font-weight:bold;
@@ -269,7 +269,7 @@ img:not([src]) {
 			margin:0;
 
 			position: absolute;
-			right:60px;
+			right:30px;
 			top:0;
 			width:220px;
 
@@ -315,7 +315,15 @@ img:not([src]) {
 		}
 
 		&__large-desc{
-			float:left;
+      float:left;
+      
+      &--100p{
+        max-width:100% !important;
+
+        .work-single-info__large-desc__text{
+          padding-right:0;
+        }
+      }
 
 
 			&__text{
@@ -330,6 +338,11 @@ img:not([src]) {
 
 @include screen(large){
 	.work-single-info{
+
+    &__details{
+      right:60px;
+      width:300px;
+    }
 
 		&__intro{
 			margin-bottom:60px;

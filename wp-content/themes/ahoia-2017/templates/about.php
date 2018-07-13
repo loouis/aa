@@ -134,7 +134,7 @@
                 <li><p><span>“</span> Couldn't ask for a better company <span>”</span></p></li>
               </ul>
             </div>
-            <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+            <p class="intro">By combining powerful creative, modern technology and strategy, we create an immersive space for users to connect. We work in close collaboration with our clients, working beside them solving business problems.</p>
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@
           <div class="full-page-slider__slide__text-con">
             <span class="mobile-timeline-no"><p>1</p></span>
             <span class="mask"><h1>Strategy.</h1></span>
-            <p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p class="large">We start by analysing your business, consumer demographics data and conduct market research to couple it into a strategic vision. This is then translated into designs to clearly communicate the new business vector.</p>
           </div>
           <div class="full-page-slider__slide__services">
             <ul>
@@ -165,7 +165,7 @@
           <div class="full-page-slider__slide__text-con">
             <span class="mobile-timeline-no"><p>2</p></span>
             <span class="mask"><h1>Product.</h1></span>
-            <p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p class="large">Ahoia was built through user centric design that changes the way consumers and businesses interact with each other. We apply this approach with ongoing analysis to build an experience that will captivate the user. All in the while curating a smart system that will allow you to manage your digital space with ease.</p>
           </div>
           <div class="full-page-slider__slide__services">
             <ul>
@@ -185,7 +185,7 @@
           <div class="full-page-slider__slide__text-con">
             <span class="mobile-timeline-no"><p>3</p></span>
             <span class="mask"><h1>Marketing.</h1></span>
-            <p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p class="large">Your new optimised product is now ready for the world to see, we package it up with a smart advertising campaign to attract and build consumer growth. We will continually monitor the product and strategise to improve user engagement with your brand. <br />The market is constantly in motion, and we can help you move.</p>
           </div>
           <div class="full-page-slider__slide__services">
             <ul>

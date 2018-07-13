@@ -69,9 +69,6 @@
 
           <div class="all-work__item__text-con__text">
             <h1 class="all-work__item__text-con__title"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
-            <span class="btn btn-tri">
-              <i class="btn-tri__icon"></i>
-            <span>
           </div>
 
 

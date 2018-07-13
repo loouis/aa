@@ -1,0 +1,6 @@
+
+
+@include screen(medium){
+  @include main-header--md();
+  @include homepage-slider--md();
+}

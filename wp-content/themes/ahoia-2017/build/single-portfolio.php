@@ -31,6 +31,10 @@ get_header();
 
 <?php while ( have_posts() ) : the_post(); ?>
 
+  <?php
+    $clientQuote = get_field('port-text_client-quote');
+  ?>
+
   <main role="">
 
     <a href="javascript:history.go(-1)" class="work-single-back-btn">
@@ -54,7 +58,7 @@ get_header();
       <?php } ?>
 			<article class="full-hero__desc">
 				<h1 class="full-hero__desc__title largest wow slideInUp" data-wow-delay=".2s"><?php echo str_replace(' | ', '<br />', get_the_title()); ?></h1>
-        <a href="#" id="scroll-down" class="btn btn-tri wow fadeScaleIn" data-wow-delay="1.2s" data-wow-duration=".5s">
+        <a href="#0" id="scroll-down" class="btn btn-tri wow fadeScaleIn" data-wow-delay="1.2s" data-wow-duration=".5s">
           <i class="btn-tri__icon"></i>
         </a>
 			</article>
@@ -68,17 +72,22 @@ get_header();
           <p>Read more</p>
         </a>
 				<div class="work-single-info__wrapper__text-con">
-          <article class="work-single-info__large-desc">
-						<p class="work-single-info__large-desc__text"><?php the_field('port-text_the-project');?></p>
-					</article>
-          <?php if(get_field('port-text_client-quote')): ?>
+          
+          <?php if( $clientQuote ){ ?>
+            <article class="work-single-info__large-desc">
+              <p class="work-single-info__large-desc__text"><?php the_field('port-text_the-project');?></p>
+            </article>
   					<article class="work-single-info__small-desc">
               <span>
                 <i><p>“</p></i>
               </span>
   						<p class="work-single-info__small-desc__text"><?php the_field('port-text_client-quote');?></p>
   					</article>
-          <?php endif; ?>
+          <?php }else{ ?>
+            <article class="work-single-info__large-desc work-single-info__large-desc--100p">
+					  	<p class="work-single-info__large-desc__text"><?php the_field('port-text_the-project');?></p>
+					  </article>
+          <?php } ?>
 				</div><!-- //work-single-info__wrapper__text-con -->
 			</div>
       <div class="work-single-info__details">
@@ -86,12 +95,12 @@ get_header();
           <?php while( have_rows('port-b-info_repeater') ): the_row(); ?>
             <li class="work-single-info__details__wrap">
               <h4><?php the_sub_field('port-b-info_title');?></h4>
-              <p><?php the_sub_field('port-b-info_text');?></p>
+              <p class="f-large"><?php the_sub_field('port-b-info_text');?></p>
             </li>
           <?php endwhile;  ?>
           <?php if( get_field('port-b-info_link') ): ?>
-            <li class="work-single-info__details__wrap">
-              <a href="<?php echo the_field('port-b-info_link');?>"><p>Website address</p></a>
+            <li class="work-single-info__details__wrap work-single-info__details__wrap--link">
+              <a href="<?php echo the_field('port-b-info_link');?>"><p class="f-large">Website link</p></a>
             </li>
           <?php endif; ?>
         </ul>
