@@ -45,8 +45,9 @@
       }
 
       .intro{
+        font-size:1.2em;
+        line-height:1.5em;
         color:white;
-
         font-weight: bold;
       }
 
@@ -193,10 +194,21 @@
 
       .full-page-slider{
 
-        &__slide{
-          &__ahoia-text{
-            opacity:1;
+        &__slide--01{
+
+          &.fp-completely{
+            .full-page-slider__slide__ahoia-logo{
+              opacity:1;
+              transform: translateY(-32%) skewX(0);
+            }
+            .full-page-slider__slide__ahoia-text{
+              opacity:1;
+              transform:translateY(0)
+            }
           }
+
+          
+          
         }
 
         &__timeline-no{
@@ -381,6 +393,12 @@
         float:left;
         max-width:none;
         width:40%;
+        opacity:0;
+        transform: translateY(-32%) skewX(30deg);
+        z-index: 0;
+
+        transition: opacity .45s ease-in-out .2s, transform .45s ease-in-out;
+        
 
         svg{
           margin-left: -85px;
@@ -411,11 +429,13 @@
         right:10%;
         margin-top:0;
         opacity:0;
+        transform: translateY(-20px);
 
         transition: opacity .45s ease-in-out .6s;
 
         .intro{
-          font-size:1.1em;
+          font-size:1.4em;
+          line-height:1.5em;
           float:right;
         }
       }
@@ -436,16 +456,7 @@
         }
 
 
-        &__logo-symbol{
-          opacity:0;
-          position:absolute;
-          width:110%;
-          transform: translateY(-32%) skewX(30deg);
-          left:-22%;
-          z-index: 0;
-
-          transition: opacity .45s ease-in-out, transform .45s ease-in-out;
-        }
+        
 
         span p{
           font-size:22px;
@@ -467,11 +478,6 @@
               transform:translateY(0);
             }
             &__text-con{
-
-              &__logo-symbol{
-                opacity:1;
-                transform: translateY(-32%) skewX(0);
-              }
 
               h1{
                 transform: translateY(0);
