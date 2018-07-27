@@ -129,11 +129,11 @@
 
           </div>
           <div class="full-page-slider__slide__ahoia-text">
-            <div class="full-page-slider__slide__ahoia-text__quote">
+            <!-- <div class="full-page-slider__slide__ahoia-text__quote">
               <ul>
                 <li><p><span>“</span> Couldn't ask for a better company <span>”</span></p></li>
               </ul>
-            </div>
+            </div> -->
             <p class="intro">By combining powerful creative, modern technology and strategy, we create an immersive space for users to connect. We work in close collaboration with our clients, working beside them solving business problems.</p>
           </div>
         </div>

@@ -28,17 +28,13 @@
   <?php endwhile; wp_reset_postdata(); ?>
 </style>
 
-
-
-
 <main role="">
 
   <div class="container all-work full-page-slider">
 
     <?php while( $query->have_posts() ) : $query->the_post(); $counter++;?>
 
-      <a href="<?php echo the_permalink(); ?>" class="all-work__item all-work__item--<?php echo $counter; ?>" style="background-color:#1C253A;">
-
+      <a href="<?php echo the_permalink(); ?>" class="wow fadeIn all-work__item all-work__item--<?php echo $counter; ?>" data-wow-delay="<?php echo $counter/8;?>s" style="background-color:<?php the_field('border_color');?>;">
 
         <div class="section" data-slider="<?php echo $slideCounter;?>">
       		<div class="image-objects"> 
@@ -83,8 +79,6 @@
           </div><!-- //all-work__item__text-con__shape -->
 
         </div>
-
-        <!-- <img src="images/all-work-image.jpg" alt="" class="all-work__item__img"> -->
       </a>
 
     <?php endwhile; ?>
